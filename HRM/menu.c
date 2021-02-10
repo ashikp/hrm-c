@@ -77,6 +77,8 @@ int select;
 void Employee_Menu(){
     system("cls");
 bannerdesign("Employee Menu");
+    getcod(20,5);
+    printf("1. List");
 }
 void Client_Menu(){
     system("cls");
