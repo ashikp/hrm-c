@@ -51,11 +51,14 @@
 	<windows.h>
 	<time.h>
 
-1612984075 source:e:\projectbubt\hrm-c\hrm\important.c
+1612987115 source:e:\projectbubt\hrm-c\hrm\important.c
+	<stdio.h>
 	<conio.h>
+	<string.h>
 	<ctype.h>
 	<stdlib.h>
 	<windows.h>
+	<time.h>
 
 1612984075 source:e:\projectbubt\hrm-c\hrm\login.c
 	<stdio.h>
@@ -71,7 +74,7 @@
 	<stdlib.h>
 	<string.h>
 
-1612986288 source:e:\projectbubt\hrm-c\hrm\user_management.c
+1612987964 source:e:\projectbubt\hrm-c\hrm\user_management.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
