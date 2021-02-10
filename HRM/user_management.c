@@ -137,7 +137,7 @@ void delete_user(){}
 void view_user(){
     system("cls");
     bannerdesign("View Users");
-    FILE *mainfile = fopen("data/users.txt", "rb");
+    FILE *mainfile = fopen("data/users.txt", "r");
     int i, post = 8;
 
 
@@ -155,7 +155,7 @@ void view_user(){
     for(i=0; i<95; i++){
         printf("-");
     }
-    while(fscanf(mainfile, "%i %s %s %s %s %s", &aue.id, aue.username, aue.first_name, aue.last_name, aue.role)!=EOF){
+    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
         getcod(5,post);
         printf("%i", aue.id);
         getcod(12,post);
@@ -166,6 +166,16 @@ void view_user(){
         printf("%s", aue.last_name);
         getcod(58,post);
         printf("%s", aue.role);
+        post++;
     }
+    printf("\n");
+    for(i=0; i<95; i++){
+        printf("-");
+    }
+    printf("\n");
+    fclose(mainfile);
+    printf("Press any key to go Back \n");
+    getch();
+    admin_user_management();
 }
 void update_user(){}
