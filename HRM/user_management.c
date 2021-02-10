@@ -134,5 +134,21 @@ void add_user(){
 
 }
 void delete_user(){}
-void view_user(){}
+void view_user(){
+system("cls");
+bannerdesign("View Users");
+FILE *mainfile = fopen("data/users.txt", "rb");
+
+
+getcod(5,6);
+printf("ID");
+getcod(12,6);
+printf("UserName");
+getcod(26,6);
+printf("First Name");
+getcod(38,6);
+printf("Last Name");
+getcod(58,6);
+printf("Role Name");
+}
 void update_user(){}
