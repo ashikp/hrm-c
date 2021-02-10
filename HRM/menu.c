@@ -119,7 +119,41 @@ bannerdesign("Employee Menu");
         }
 
 }
-void admin_facility_menu(){}
+void admin_facility_menu(){
+bannerdesign("Facility Menu");
+    int select;
+
+    getcod(20,5);
+    printf("1. Insurance");
+
+    getcod(20,6);
+    printf("2.Over Time");
+
+    getcod(20,7);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_f_insurance();
+            break;
+        case 2:
+            admin_f_over_time();
+            break;
+        case 3:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+
+}
 void admin_financial_menu(){}
 void admin_time_menu(){}
 
@@ -215,3 +249,5 @@ bannerdesign("User Management");
 void admin_role_control_policy(){}
 void admin_e_information_database(){}
 void admin_e_hire_employee(){}
+void admin_f_insurance(){}
+void admin_f_over_time(){}
