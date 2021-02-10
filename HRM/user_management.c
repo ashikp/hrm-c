@@ -135,20 +135,37 @@ void add_user(){
 }
 void delete_user(){}
 void view_user(){
-system("cls");
-bannerdesign("View Users");
-FILE *mainfile = fopen("data/users.txt", "rb");
+    system("cls");
+    bannerdesign("View Users");
+    FILE *mainfile = fopen("data/users.txt", "rb");
+    int i, post = 8;
 
 
-getcod(5,6);
-printf("ID");
-getcod(12,6);
-printf("UserName");
-getcod(26,6);
-printf("First Name");
-getcod(38,6);
-printf("Last Name");
-getcod(58,6);
-printf("Role Name");
+    getcod(5,6);
+    printf("ID");
+    getcod(12,6);
+    printf("UserName");
+    getcod(26,6);
+    printf("First Name");
+    getcod(38,6);
+    printf("Last Name");
+    getcod(58,6);
+    printf("Role Name");
+    getcod(0,7);
+    for(i=0; i<95; i++){
+        printf("-");
+    }
+    while(fscanf(mainfile, "%i %s %s %s %s %s", &aue.id, aue.username, aue.first_name, aue.last_name, aue.role)!=EOF){
+        getcod(5,post);
+        printf("%i", aue.id);
+        getcod(12,post);
+        printf("%s", aue.username);
+        getcod(26,post);
+        printf("%s", aue.first_name);
+        getcod(38,post);
+        printf("%s", aue.last_name);
+        getcod(58,post);
+        printf("%s", aue.role);
+    }
 }
 void update_user(){}
