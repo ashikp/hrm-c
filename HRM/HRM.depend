@@ -32,3 +32,43 @@
 	<windows.h>
 	<time.h>
 
+1612986916 source:e:\projectbubt\hrm-c\hrm\banner.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1612984075 source:e:\projectbubt\hrm-c\hrm\important.c
+	<conio.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+
+1612984075 source:e:\projectbubt\hrm-c\hrm\login.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1612984075 source:e:\projectbubt\hrm-c\hrm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1612986288 source:e:\projectbubt\hrm-c\hrm\user_management.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1612986486 source:e:\projectbubt\hrm-c\hrm\menu.c
+
