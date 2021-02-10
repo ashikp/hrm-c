@@ -133,7 +133,35 @@ void add_user(){
     admin_user_management();
 
 }
-void delete_user(){}
+void delete_user(){
+    system("cls");
+    bannerdesign("Delete User");
+    FILE *mainfile = fopen("data/users.txt", "r");
+    FILE *tempfile = fopen("data/temp.txt", "w+");
+    int id, found;
+
+    getcod(5,6);
+    printf("Enter Id:");
+    scanf("%i", &id);
+
+    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
+        if(id!=aue.id){
+            fprintf(tempfile, "%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
+        }else{
+            found = 1;
+        }
+    }
+    if(!found){
+        printf("Record Not Found");
+    }else{
+        printf("Record Updated");
+    }
+    fclose(mainfile);
+    fclose(tempfile);
+    remove(mainfile);
+    rename(tempfile, mainfile);
+
+}
 void view_user(){
     system("cls");
     bannerdesign("View Users");
