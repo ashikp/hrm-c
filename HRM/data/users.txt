@@ -1,17 +1,3 @@
-101 ashik ashik A
-
-102 rahat rahat E
-
-103 mahee mahee C
-
-104 meoce meoce A
-
-105 a a E
-
-106 b b C
-107 er  er er A
-
-108 r  r r A
-
-109 we  we we A
-
+101 we we we we A
+102 ew ew ew ew E
+103 a a a a C
