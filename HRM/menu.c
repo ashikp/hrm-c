@@ -385,7 +385,51 @@ bannerdesign("User Management");
             }
 
 }
-void admin_role_control_policy(){}
+void admin_administrative_feature(){}
+void admin_employee_feature(){}
+void admin_client_feature(){}
+void admin_role_control_policy(){
+system("cls");
+bannerdesign("Role Control Policy");
+    int select;
+
+    getcod(20,5);
+    printf("1. Administrative Feature");
+
+    getcod(20,6);
+    printf("2. Employee Feature");
+
+    getcod(20,7);
+    printf("3. Client Feature");
+
+    getcod(20,8);
+    printf("4. << Go Back ");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_administrative_feature();
+            break;
+        case 2:
+            admin_employee_feature();
+            break;
+        case 3:
+            admin_client_feature();
+            break;
+        case 4:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+
+}
 void admin_e_information_database(){
 system("cls");
 bannerdesign("Information Database");
@@ -688,6 +732,8 @@ bannerdesign("Rewards");
         }
 
 }
+void admin_in(){}
+void admin_out(){}
 void admin_t_clock_in_or_out(){
 system("cls");
 bannerdesign("Clock In Or Out");
@@ -714,6 +760,81 @@ bannerdesign("Clock In Or Out");
             admin_out();
             break;
         case 3:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+
+}
+void admin_employee_total_time_daily(){}
+void admin_t_time_tracking(){
+system("cls");
+bannerdesign("Time Tracking");
+    int select;
+
+    getcod(20,5);
+    printf("1. Employee Total Time Daily");
+
+    getcod(20,6);
+    printf("2. Employee Overtime");
+
+    getcod(20,7);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_employee_total_time_daily();
+            break;
+        case 2:
+            admin_employee_overtime();
+            break;
+        case 3:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+
+}
+void admin_view_all_employee_attendance(){}
+void admin_view_single_employee_attendance(){}
+void admin_t_attendance_management(){
+system("cls");
+bannerdesign("Attendance Management");
+    int select;
+
+    getcod(20,5);
+    printf("1. View All Employee Attendance");
+
+    getcod(20,6);
+    printf("2. View Single Employee Attendance");
+
+    getcod(20,7);
+    printf("3. << Go Back ");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_view_all_employee_attendance();
+            break;
+        case 2:
+            admin_view_single_employee_attendance();
+            break;
+        case 3:
             admin_assign_facility();
             break;
         case 4:
@@ -729,11 +850,118 @@ bannerdesign("Clock In Or Out");
             admin_user_menu();
         }
 
+
 }
-void admin_t_time_tracking(){}
-void admin_t_attendance_management(){}
-void admin_p_projects(){}
-void admin_p_client_management(){}
+void admin_add_project(){}
+void admin_project_status(){}
+void admin_project_resource(){}
+void admin_delete_project(){}
+void admin_view_project(){}
+void admin_p_projects(){
+    system("cls");
+bannerdesign("Projects");
+    int select;
+
+    getcod(20,4);
+    printf("1. Add Project");
+
+    getcod(20,5);
+    printf("2. Project Status");
+
+    getcod(20,6);
+    printf("3. Project Resource");
+
+    getcod(20,7);
+    printf("4. Delete Project");
+
+    getcod(20,8);
+    printf("5. View Project");
+
+    getcod(20,9);
+    printf("6. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_add_project();
+            break;
+        case 2:
+            admin_project_status();
+            break;
+        case 3:
+            admin_project_resource();
+            break;
+        case 4:
+            admin_delete_project();
+            break;
+        case 5:
+            admin_view_project();
+            break;
+        case 6:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+}
+void admin_add_client(){}
+void admin_delete_client(){}
+void admin_view_client(){}
+void admin_assign_project(){}
+void admin_p_client_management(){
+system("cls");
+bannerdesign("Client Management");
+    int select;
+
+    getcod(20,5);
+    printf("1. Add Client");
+
+    getcod(20,6);
+    printf("2. Delete Client");
+
+    getcod(20,7);
+    printf("3. View Client");
+
+    getcod(20,8);
+    printf("4. Assign poject");
+
+    getcod(20,9);
+    printf("5. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_add_client();
+            break;
+        case 2:
+            admin_delete_client();
+            break;
+        case 3:
+            admin_view_client();
+            break;
+        case 4:
+            admin_assign_project();
+            break;
+        case 5:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_user_menu();
+        }
+
+}
 void admin_add_employee(){}
 void admin_edit_employee(){}
 void admin_delete_employee(){}
