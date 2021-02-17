@@ -4,5 +4,5 @@
 int main()
 {
     welcome();
-    login();
+    update_user();
 }

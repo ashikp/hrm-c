@@ -220,7 +220,7 @@ void update_user(){
     bannerdesign("Update User Details");
     FILE *mainfile = fopen("data/users.txt", "rb+");
     FILE *tempfile = fopen("data/u_temp.txt", "wa+");
-    int found, id, vaild=0,i,mount;
+    int found = 0, id, vaild=0,i,mount;
     char update[100];
     getcod(20,6);
     printf("Enter the User ID: ");
