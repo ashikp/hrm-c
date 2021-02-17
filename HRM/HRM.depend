@@ -1,19 +1,10 @@
 # depslib dependency file v1.0
-1613160467 source:e:\projectbubt\hrm\main.c
+1613572980 source:e:\projectbubt\hrm\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1613160467 source:e:\projectbubt\hrm\banner.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	<ctype.h>
-	<stdlib.h>
-	<windows.h>
-	<time.h>
-
-1613565603 source:e:\projectbubt\hrm\login.c
+1613572980 source:e:\projectbubt\hrm\banner.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -22,7 +13,7 @@
 	<windows.h>
 	<time.h>
 
-1613160467 source:e:\projectbubt\hrm\important.c
+1613573121 source:e:\projectbubt\hrm\login.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -31,9 +22,18 @@
 	<windows.h>
 	<time.h>
 
-1613160467 source:e:\projectbubt\hrm\menu.c
+1613572980 source:e:\projectbubt\hrm\important.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
 
-1613067025 source:e:\projectbubt\hrm\user_management.c
+1613575595 source:e:\projectbubt\hrm\menu.c
+
+1613575817 source:e:\projectbubt\hrm\user_management.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -84,4 +84,13 @@
 	<time.h>
 
 1613069522 source:e:\projectbubt\hrm-c\hrm\menu.c
+
+1613577769 source:e:\projectbubt\hrm\employee_management.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
 

@@ -959,7 +959,6 @@ bannerdesign("Client Management");
         }
 
 }
-void admin_add_employee(){}
 void admin_edit_employee(){}
 void admin_delete_employee(){}
 void admin_job_history_overview(){}

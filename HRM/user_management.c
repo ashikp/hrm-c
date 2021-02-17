@@ -20,13 +20,18 @@ void add_user(){
     system("cls");
     bannerdesign("Add User");
     int vaild = 0 , i;
+    int callbackid;
 
     FILE *add_user_file;
     add_user_file = fopen("data/users.txt", "a");
+    FILE *readfile = fopen("data/users.txt", "r");
+
+    while(fscanf(readfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
+        callbackid = aue.id;
+    }
 
     getcod(20,6);
-    printf("Enter ID:   ");
-    scanf("%i", &aue.id);
+    callbackid++;
 
     do{
     getcod(20,7);
@@ -125,8 +130,9 @@ void add_user(){
     }
     while(!vaild);
 
-    fprintf(add_user_file,"%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
+    fprintf(add_user_file,"%i %s %s %s %s %s\n\n", callbackid, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
     fclose(add_user_file);
+    fclose(readfile);
     printf("User Add Complete\n");
     getch();
     printf("Press any key to go Back \n");
@@ -158,8 +164,8 @@ void delete_user(){
     }
     fclose(mainfile);
     fclose(tempfile);
-    remove(mainfile);
-    rename(tempfile, mainfile);
+    remove("data//users.txt");
+    rename("data//temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_user_management();
