@@ -88,9 +88,67 @@ void Client_Menu(){
     bannerdesign("Client Menu");
 }
 /** Client Menu **/
-void admin_help(){}
 
-/** Employee Administrator **/
+/**8. Help**/
+void admin_help(){
+system("cls");
+bannerdesign("Help");
+
+int select;
+getcod(20,5);
+    printf("1. Employee Menu \n");
+
+    getcod(20,6);
+    printf("2. Facility Menu \n");
+
+    getcod(20,7);
+    printf("3. Financial Menu \n");
+
+    getcod(20,8);
+    printf("4. Time Menu");
+
+    getcod(20,9);
+    printf("5. User Menu");
+
+    getcod(20,10);
+    printf("6. Project Menu");
+
+    getcod(20,11);
+    printf("7. Reports");
+
+    getcod(20,13);
+    printf("9. Exit");
+
+    switch(select){
+    case 1:
+        help_employee_menu();
+        break;
+    case 2:
+        help_facility_menu();
+    case 3:
+        help_financial_menu();
+    case 4:
+        help_time_menu();
+    case 5:
+        help_user_menu();
+    case 6:
+        help_project_menu();
+    case 7:
+        help_reports_menu();
+    default:
+        printf("Wrong Input \n");
+        printf("Press any key to Try Again \n");
+        getch();
+        Administrator_Menu();
+
+    }
+}
+
+/**8. Help**/
+
+
+
+/** 1. Employee Administrator **/
 
 void admin_employee_menu(){
 system("cls");
@@ -143,7 +201,7 @@ bannerdesign("Information Database");
 
 
 
-/** User Management **/
+/** 5. User Management **/
 void admin_user_menu(){
     system("cls");
     bannerdesign("User Menu");
