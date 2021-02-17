@@ -1,19 +1,10 @@
 # depslib dependency file v1.0
-1611792378 source:e:\projectbubt\hrm\main.c
+1613160467 source:e:\projectbubt\hrm\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1612988480 source:e:\projectbubt\hrm\banner.c
-	<stdio.h>
-	<conio.h>
-	<string.h>
-	<ctype.h>
-	<stdlib.h>
-	<windows.h>
-	<time.h>
-
-1611897652 source:e:\projectbubt\hrm\login.c
+1613160467 source:e:\projectbubt\hrm\banner.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -22,7 +13,7 @@
 	<windows.h>
 	<time.h>
 
-1612988085 source:e:\projectbubt\hrm\important.c
+1613565603 source:e:\projectbubt\hrm\login.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -31,7 +22,16 @@
 	<windows.h>
 	<time.h>
 
-1612991471 source:e:\projectbubt\hrm\menu.c
+1613160467 source:e:\projectbubt\hrm\important.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1613160467 source:e:\projectbubt\hrm\menu.c
 
 1613067025 source:e:\projectbubt\hrm\user_management.c
 	<stdio.h>
