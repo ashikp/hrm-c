@@ -2,6 +2,7 @@
 void help_employee_menu(){
     system("cls");
     bannerdesign("Employee Menu");
+    getcod(20,6);
     printf("Here we can add, edit, delete and view employee information.\n");
     printf("Press Any Key for Go Back");
     getch();
@@ -10,6 +11,7 @@ void help_employee_menu(){
 void help_facility_menu(){
     system("cls");
     bannerdesign("Facility Menu");
+    getcod(20,6);
     printf("Here one can view all kind of facilities that are available for the employee by the employer.\n");
     printf("Press Any Key for Go Back");
     getch();
@@ -19,6 +21,7 @@ void help_facility_menu(){
 void help_financial_menu(){
     system("cls");
     bannerdesign("Financial Menu");
+    getcod(20,6);
     printf("It is a section where all the budgetary and salary concerns of the company is addressed. Here we can also get payment information.\n");
     printf("Press Any Key for Go Back");
     getch();
@@ -28,6 +31,7 @@ void help_financial_menu(){
 void help_time_menu(){
     system("cls");
     bannerdesign("Time Menu");
+    getcod(20,6);
     printf("In this menu, the user can track the employee’s time spent on the company grounds.\n");
     printf("Press Any Key for Go Back");
     getch();
@@ -37,6 +41,7 @@ void help_time_menu(){
 void help_user_menu(){
     system("cls");
     bannerdesign("User Menu");
+    getcod(20,6);
     printf("Here we can observe the accesses granted to each types of user.");
     printf("Press Any Key for Go Back");
     getch();
@@ -46,6 +51,7 @@ void help_user_menu(){
 void help_project_menu(){
     system("cls");
     bannerdesign("Project Menu");
+    getcod(20,6);
     printf("Here the client can observe the details of the assignment given by him to the company. There is also another feature that allows the company to see which client gives which project.");
     printf("Press Any Key for Go Back");
     getch();
@@ -55,6 +61,7 @@ void help_project_menu(){
 void help_reports_menu(){
     system("cls");
     bannerdesign("Reports Menu");
+    getcod(20,6);
     printf("Here we can view the annual report of the concerned company.");
     printf("Press Any Key for Go Back");
     getch();
