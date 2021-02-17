@@ -91,44 +91,8 @@ void Client_Menu(){
 void admin_help(){}
 
 /** Employee Administrator **/
+
 void admin_employee_menu(){
-system("cls");
-bannerdesign("Employee Menu");
-    int select;
-
-    getcod(20,5);
-    printf("1. Information Database");
-
-    getcod(20,6);
-    printf("2. Hire Employee");
-
-    getcod(20,7);
-    printf("5. << Go Back");
-
-    getcod(20,11);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_e_information_database();
-            break;
-        case 2:
-            admin_e_hire_employee();
-            break;
-        case 3:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_employee_menu();
-        }
-
-}
-
-void admin_e_information_database(){
 system("cls");
 bannerdesign("Information Database");
     int select;
@@ -172,7 +136,7 @@ bannerdesign("Information Database");
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
             getch();
-            admin_e_information_database();
+            admin_employee_menu();
         }
 }
 /** Employee Administrator **/

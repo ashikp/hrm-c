@@ -310,6 +310,18 @@ admin_view_employee(){
 }
 
 void admin_edit_employee(){
-
-
+    system("cls");
+    bannerdesign("Update Employee Details");
+    FILE *mainfile = fopen("data/employee.txt", "rb+");
+    FILE *tempfile = fopen("data/e_temp.txt", "wa+");
+    int found, id, vaild=0,i,mount;
+    char update[100];
+    getcod(20,6);
+    printf("Enter the Employee ID: ");
+    scanf("%i", &id);
+    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
+        if(id!=ed.id){
+            fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob);
+        }
+    }
 }
