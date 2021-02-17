@@ -116,8 +116,13 @@ getcod(20,5);
     getcod(20,11);
     printf("7. Reports");
 
-    getcod(20,13);
-    printf("9. Exit");
+    getcod(20,12);
+    printf("8. Exit");
+
+    getcod(20,16);
+    printf("Select Menu:     ");
+
+    scanf("%i", &select);
 
     switch(select){
     case 1:
@@ -125,21 +130,30 @@ getcod(20,5);
         break;
     case 2:
         help_facility_menu();
+        break;
     case 3:
         help_financial_menu();
+        break;
     case 4:
         help_time_menu();
+        break;
     case 5:
         help_user_menu();
+        break;
     case 6:
         help_project_menu();
+        break;
     case 7:
         help_reports_menu();
+        break;
+    case 8:
+        Administrator_Menu();
+        break;
     default:
         printf("Wrong Input \n");
         printf("Press any key to Try Again \n");
         getch();
-        Administrator_Menu();
+        admin_help();
 
     }
 }
