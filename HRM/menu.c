@@ -978,7 +978,6 @@ bannerdesign("Client Management");
         }
 
 }
-void admin_edit_employee(){}
 void admin_job_history_overview(){}
 void admin_add_facility(){}
 void admin_view_facility(){}

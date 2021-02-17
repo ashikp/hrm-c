@@ -308,3 +308,8 @@ admin_view_employee(){
     getch();
     admin_e_information_database();
 }
+
+void admin_edit_employee(){
+
+
+}
