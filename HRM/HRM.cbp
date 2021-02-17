@@ -34,6 +34,9 @@
 		<Unit filename="banner.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="employee_management.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="important.c">
 			<Option compilerVar="CC" />
 		</Unit>
