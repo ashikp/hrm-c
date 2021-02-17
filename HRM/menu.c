@@ -442,7 +442,7 @@ bannerdesign("Information Database");
     printf("3. Delete Employee");
 
     getcod(20,8);
-    printf("4. Job History Overview");
+    printf("4. View Employee");
 
     getcod(20,9);
     printf("5. << Go Back");
@@ -462,7 +462,7 @@ bannerdesign("Information Database");
             admin_delete_employee();
             break;
         case 4:
-            admin_job_history_overview();
+            admin_view_employee();
             break;
         case 5:
             Administrator_Menu();
@@ -960,7 +960,6 @@ bannerdesign("Client Management");
 
 }
 void admin_edit_employee(){}
-void admin_delete_employee(){}
 void admin_job_history_overview(){}
 void admin_add_facility(){}
 void admin_view_facility(){}

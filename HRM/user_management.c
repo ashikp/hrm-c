@@ -143,7 +143,7 @@ void delete_user(){
     system("cls");
     bannerdesign("Delete User");
     FILE *mainfile = fopen("data/users.txt", "rb+");
-    FILE *tempfile = fopen("data/temp.txt", "w+");
+    FILE *tempfile = fopen("data/u_temp.txt", "w+");
     int id, found;
 
     getcod(5,6);
@@ -165,7 +165,7 @@ void delete_user(){
     fclose(mainfile);
     fclose(tempfile);
     remove("data//users.txt");
-    rename("data//temp.txt", "data//users.txt");
+    rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_user_management();
@@ -219,7 +219,7 @@ void update_user(){
     system("cls");
     bannerdesign("Update User Details");
     FILE *mainfile = fopen("data/users.txt", "rb+");
-    FILE *tempfile = fopen("data/temp.txt", "wa+");
+    FILE *tempfile = fopen("data/u_temp.txt", "wa+");
     int found, id, vaild=0,i,mount;
     char update[100];
     getcod(20,6);
@@ -273,17 +273,6 @@ void update_user(){
                 printf("Enter Password:   ");
                 fflush(stdin);
                 gets(aue.password);
-                for(i=0; i<strlen(aue.password); ++i){
-                    if(isalpha(aue.password[i])){
-                        vaild = 1;
-                    }else{
-                        vaild = 0;
-                        break;
-                    }
-                }
-                if(!vaild){
-                    printf("\n Password Can't have Number on it. \n");
-                }
                 }
                 while(!vaild);
 
@@ -363,7 +352,7 @@ void update_user(){
     fclose(mainfile);
     fclose(tempfile);
     remove("data//users.txt");
-    rename("data//temp.txt", "data//users.txt");
+    rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_user_management();

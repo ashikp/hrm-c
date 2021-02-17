@@ -48,6 +48,7 @@ while(fscanf(userdata_file,"%i %s %s %s %s %s\n\n", &ucheck.id, ucheck.username,
                     printf("Press any key to Go Administrator Menu \n");
                     endline();
                     getch();
+                    fclose(userdata_file);
                     Administrator_Menu();
                     break;
 
@@ -57,6 +58,7 @@ while(fscanf(userdata_file,"%i %s %s %s %s %s\n\n", &ucheck.id, ucheck.username,
                     printf("Press any key to Go Employee Menu \n");
                     endline();
                     getch();
+                    fclose(userdata_file);
                     Employee_Menu();
                     break;
 
@@ -66,6 +68,7 @@ while(fscanf(userdata_file,"%i %s %s %s %s %s\n\n", &ucheck.id, ucheck.username,
                     printf("Press any key to Go Client Menu \n");
                     endline();
                     getch();
+                    fclose(userdata_file);
                     Client_Menu();
                     break;
 
