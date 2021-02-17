@@ -22,7 +22,7 @@ void add_user(){
     int vaild = 0 , i;
 
     FILE *add_user_file;
-    add_user_file = fopen("users.txt", "a");
+    add_user_file = fopen("data/users.txt", "a");
 
     getcod(20,6);
     printf("Enter ID:   ");
@@ -136,8 +136,8 @@ void add_user(){
 void delete_user(){
     system("cls");
     bannerdesign("Delete User");
-    FILE *mainfile = fopen("users.txt", "rb+");
-    FILE *tempfile = fopen("temp.txt", "w+");
+    FILE *mainfile = fopen("data/users.txt", "rb+");
+    FILE *tempfile = fopen("data/temp.txt", "w+");
     int id, found;
 
     getcod(5,6);
@@ -168,7 +168,7 @@ void delete_user(){
 void view_user(){
     system("cls");
     bannerdesign("View Users");
-    FILE *mainfile = fopen("users.txt", "r");
+    FILE *mainfile = fopen("data/users.txt", "r");
     int i, post = 8;
 
 
@@ -212,8 +212,8 @@ void view_user(){
 void update_user(){
     system("cls");
     bannerdesign("Update User Details");
-    FILE *mainfile = fopen("users.txt", "rb+");
-    FILE *tempfile = fopen("temp.txt", "wa+");
+    FILE *mainfile = fopen("data/users.txt", "rb+");
+    FILE *tempfile = fopen("data/temp.txt", "wa+");
     int found, id, vaild=0,i,mount;
     char update[100];
     getcod(20,6);
@@ -356,8 +356,8 @@ void update_user(){
     if(!found)printf("\n\tNo record found!");
     fclose(mainfile);
     fclose(tempfile);
-    remove("users.txt");
-    rename("temp.txt", "users.txt");
+    remove("data//users.txt");
+    rename("data//temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_user_management();

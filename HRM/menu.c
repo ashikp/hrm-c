@@ -95,16 +95,13 @@ bannerdesign("Employee Menu");
     printf("2. Hire Employee");
 
     getcod(20,7);
-    printf("4. Bank and Tax");
+    printf("3. Bank and Tax");
 
     getcod(20,8);
-    printf("5. Salary administration");
-
-    getcod(20,9);
-    printf("6. << Go Back");
+    printf("4. Salary administration");
 
     getcod(20,10);
-    printf("3. << Go Back");
+    printf("5. << Go Back");
 
     getcod(20,11);
     printf("Select Menu:     ");

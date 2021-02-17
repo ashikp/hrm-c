@@ -21,7 +21,7 @@ void login(){
 int check = 0;
 FILE *userdata_file;
 
-userdata_file = fopen("users.txt", "rb");
+userdata_file = fopen("data/users.txt", "rb");
 
 system("cls");
 bannerdesign("Login Menu");
