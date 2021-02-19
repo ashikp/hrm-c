@@ -393,9 +393,10 @@ bannerdesign("Facility Menu");
         }
 
 }
+/** Financial Menu**/
 void admin_financial_menu(){
-system("cls");
-bannerdesign("Financial Menu");
+    system("cls");
+    bannerdesign("Financial Menu");
     int select;
 
     getcod(20,4);
@@ -407,6 +408,7 @@ bannerdesign("Financial Menu");
 
     getcod(20,6);
     printf("3. Salary Administration");
+
 
 
     getcod(20,7);
@@ -440,10 +442,140 @@ bannerdesign("Financial Menu");
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
             getch();
-            admin_user_menu();
+            admin_financial_menu();
         }
 
 }
+
+void admin_fi_payroll(){
+    system("cls");
+    bannerdesign("Payroll");
+    int select;
+
+    getcod(20,5);
+    printf("1. Add Pay Order");
+
+    getcod(20,6);
+    printf("2. View Pay Order");
+
+    getcod(20,7);
+    printf("3. Delete Pay Order");
+
+    getcod(20,8);
+    printf("4. Release Pay Order");
+
+    getcod(20,9);
+    printf("5. Expense");
+
+    getcod(20,10);
+    printf("6. Provident  Fund");
+
+    getcod(20,11);
+    printf("7. << Go Back");
+
+    getcod(20,12);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_add_pay_order();
+            break;
+        case 2:
+            admin_view_pay_order();
+            break;
+        case 3:
+            admin_delete_pay_order();
+            break;
+        case 4:
+            admin_release_pay_order();
+            break;
+        case 5:
+            admin_expense();
+            break;
+        case 6:
+            admin_provident_fund();
+            break;
+        case 7:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_fi_payroll();
+        }
+
+}
+
+void admin_fi_salary_administration(){
+    system("cls");
+    bannerdesign("Salary Administrator");
+    int select;
+
+    getcod(20,5);
+    printf("1. Generate Salary Sheet");
+
+    getcod(20,6);
+    printf("2. View Salary Sheet");
+
+    getcod(20,7);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+    switch(select){
+    case 1:
+        admin_fi_gen_salary_sheet();
+        break;
+    case 2:
+        admin_fi_view_salary();
+        break;
+    default:
+        printf("Wrong Input \n");
+        printf("Press any key to Try Again \n");
+        getch();
+        admin_financial_menu();
+    }
+
+
+}
+void admin_fi_view_salary(){
+    system("cls");
+    bannerdesign("View Salary");
+    int select;
+    getcod(20,5);
+    printf("1. Watch By Month");
+
+    getcod(20,6);
+    printf("2. Watch By ID");
+
+    getcod(20,7);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+    switch(select){
+    case 1:
+        admin_fi_vs_month();
+        break;
+    case 2:
+        admin_fi_vs_single();
+        break;
+    default:
+        printf("Wrong Input \n");
+        printf("Press any key to Try Again \n");
+        getch();
+        admin_fi_salary_administration();
+    }
+}
+
+
+/**Financial Menu**/
 void admin_time_menu(){
 system("cls");
 bannerdesign("Time Menu");
@@ -659,54 +791,7 @@ bannerdesign("Over Time");
         }
 
 }
-void admin_fi_payroll(){
-system("cls");
-bannerdesign("Payroll");
-    int select;
 
-    getcod(20,5);
-    printf("1. Add Pay Order");
-
-    getcod(20,6);
-    printf("2. Release Pay Order");
-
-    getcod(20,7);
-    printf("3. Expense");
-
-    getcod(20,8);
-    printf("4. Provident  Fund");
-
-    getcod(20,9);
-    printf("5. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_add_pay_order();
-            break;
-        case 2:
-            admin_release_pay_order();
-            break;
-        case 3:
-            admin_expense();
-            break;
-        case 4:
-            admin_provident_fund();
-            break;
-        case 5:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-
-}
 void admin_add_employee_bank_and_tax_details(){}
 void admin_yearly_tax_issues(){}
 void admin_fi_bank_and_taxes(){
@@ -745,7 +830,7 @@ bannerdesign("Information Database");
         }
 
 }
-void admin_fi_salary_administration(){}
+
 void admin_add_rewards(){}
 void admin_assign_rewards(){}
 void admin_fi_rewards(){
@@ -1022,8 +1107,7 @@ void admin_employee_with_facility(){}
 void admin_employee_overtime(){}
 void admin_overtime_facility(){}
 void admin_overtime_extra_benefit(){}
-void admin_add_pay_order(){}
-void admin_release_pay_order(){}
+
 void admin_expense(){}
 void admin_provident_fund(){}
 void admin_health_insurance(){

@@ -37,6 +37,9 @@
 		<Unit filename="employee_management.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="financial_management.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="help.c">
 			<Option compilerVar="CC" />
 		</Unit>

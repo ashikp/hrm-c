@@ -3,6 +3,7 @@
 #include <string.h>
 int main()
 {
-    welcome();
-    login();
+    //welcome();
+    admin_spo_gen();
+
 }

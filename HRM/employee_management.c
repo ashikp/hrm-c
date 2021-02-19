@@ -154,14 +154,14 @@ void admin_add_employee(){
 
     do{
     getcod(20,13);
-    printf("Enter Mailing Address:   ");
+    printf("Enter Permanent Address:   ");
     fflush(stdin);
     gets(ed.permanent_address);
     }
     while(!vaild);
 
     getcod(20,14);
-    printf("Enter NID Number:   ");
+    printf("Enter NID Number(10-17 Digits Only):   ");
     scanf("%i", &ed.nid_number);
 
 
@@ -186,7 +186,7 @@ void admin_add_employee(){
 
     do{
     getcod(20,16);
-    printf("Enter Joining Date:   ");
+    printf("Enter Joining Date(01-01-2021):   ");
     fflush(stdin);
     gets(ed.join_date);
     }
@@ -217,7 +217,7 @@ void admin_add_employee(){
 
     do{
     getcod(20,19);
-    printf("Enter Date of Birth:   ");
+    printf("Enter Date of Birth(01-01-1999):   ");
     fflush(stdin);
     gets(ed.dob);
     }
@@ -237,8 +237,11 @@ admin_delete_employee(){
  system("cls");
     bannerdesign("Delete Employee");
     FILE *mainfile = fopen("data/employee.txt", "rb+");
-    FILE *tempfile = fopen("data/e_temp.txt", "w+");
-    int id, found;
+    FILE *tempfile = fopen("data/e_temp.txt", "wa+");
+    FILE *u_mainfile = fopen("data/users.txt", "rb+");
+    FILE *u_tempfile = fopen("data/u_temp.txt", "wa+");
+    int id, found, u_found;
+    char role[50];
 
     getcod(5,6);
     printf("Enter Id: ");
@@ -251,15 +254,27 @@ admin_delete_employee(){
             found = 1;
         }
     }
-    if(!found){
+    while(fscanf(u_mainfile, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, role)!=EOF){
+        if(id!=ed.id){
+            fprintf(u_tempfile, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, role);
+        }else{
+            u_found = 1;
+        }
+    }
+
+    if(!found && !u_found){
         printf("Record Not Found \n");
     }else{
         printf("Record Updated \n");
     }
     fclose(mainfile);
     fclose(tempfile);
+    fclose(u_mainfile);
+    fclose(u_tempfile);
     remove("data//employee.txt");
+    remove("data//users.txt");
     rename("data//e_temp.txt", "data//employee.txt");
+    rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_employee_menu();
@@ -322,8 +337,6 @@ void admin_edit_employee(){
     while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
         if(id!=ed.id){
             fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
-        }else{
-            mount = 1 ;
         }
 
         if(ed.id==id){
