@@ -13,19 +13,19 @@ void Administrator_Menu(){
     int select;
 
     getcod(20,5);
-    printf("1. Employee Menu \n");
+    printf("1. Employee Menu"); // employee_management.c
 
     getcod(20,6);
-    printf("2. Facility Menu \n");
+    printf("2. Facility Menu");
 
     getcod(20,7);
-    printf("3. Financial Menu \n");
+    printf("3. Financial Menu"); // financial_management.c
 
     getcod(20,8);
-    printf("4. Time Menu");
+    printf("4. Time Menu"); // time_management.c
 
     getcod(20,9);
-    printf("5. User Menu");
+    printf("5. User Menu"); //user_management.c
 
     getcod(20,10);
     printf("6. Project Menu");
@@ -34,7 +34,7 @@ void Administrator_Menu(){
     printf("7. Reports");
 
     getcod(20,12);
-    printf("8. Help");
+    printf("8. Help"); // help.c
 
     getcod(20,13);
     printf("9. Exit");
@@ -91,6 +91,7 @@ bannerdesign("Employee Menu");
 int select;
 getcod(20,5);
     printf("1. Time Menu \n");
+    scanf("%i", &select);
 
 
 switch(select){

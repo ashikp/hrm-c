@@ -3,6 +3,6 @@
 #include <string.h>
 int main()
 {
-    //welcome();
-    admin_view_single_employee_attendance();
+    welcome();
+    login();
 }

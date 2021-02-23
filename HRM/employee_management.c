@@ -84,17 +84,7 @@ void admin_add_employee(){
     printf("Enter UserName:   ");
     fflush(stdin);
     gets(ed.username);
-    for(i=0; i<strlen(ed.username); ++i){
-        if(isalpha(ed.username[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
-        }
-    }
-    if(!vaild){
-        printf("\n UserName Can't have Number on it. \n");
-    }
+        break;
     }
     while(!vaild);
 
@@ -103,6 +93,7 @@ void admin_add_employee(){
     printf("Enter Password:   ");
     fflush(stdin);
     gets(ed.password);
+    break;
     }
     while(!vaild);
 
@@ -189,6 +180,7 @@ void admin_add_employee(){
     printf("Enter Joining Date(01-01-2021):   ");
     fflush(stdin);
     gets(ed.join_date);
+    break;
     }
     while(!vaild);
 
@@ -220,6 +212,7 @@ void admin_add_employee(){
     printf("Enter Date of Birth(01-01-1999):   ");
     fflush(stdin);
     gets(ed.dob);
+    break;
     }
     while(!vaild);
 

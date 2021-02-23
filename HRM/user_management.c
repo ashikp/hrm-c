@@ -37,18 +37,8 @@ void add_user(){
     getcod(20,7);
     printf("Enter Username:   ");
     fflush(stdin);
-    gets(aue.username);
-    for(i=0; i<strlen(aue.username); ++i){
-        if(isalpha(aue.username[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
-        }
-    }
-    if(!vaild){
-        printf("\n UserName Can't have Number on it. \n");
-    }
+    scanf("%s", aue.username);
+    break;
     }
     while(!vaild);
 
@@ -57,18 +47,8 @@ void add_user(){
     getcod(20,8);
     printf("Enter Password:   ");
     fflush(stdin);
-    gets(aue.password);
-    for(i=0; i<strlen(aue.password); ++i){
-        if(isalpha(aue.password[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
-        }
-    }
-    if(!vaild){
-        printf("\n Password Can't have Number on it. \n");
-    }
+    scanf("%s", aue.password);
+    break;
     }
     while(!vaild);
 
@@ -273,6 +253,7 @@ void update_user(){
                 printf("Enter Password:   ");
                 fflush(stdin);
                 gets(aue.password);
+                break;
                 }
                 while(!vaild);
 
