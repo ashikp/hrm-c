@@ -21,6 +21,7 @@ struct employee_data{
     char department[50];
     int salary;
     char dob[50];
+    char role[2];
 }ed;
 
 void admin_add_employee(){
@@ -36,7 +37,7 @@ void admin_add_employee(){
     add_user_file = fopen("data/users.txt", "a");
     read_file = fopen("data/users.txt", "r");
 
-    while(fscanf(read_file, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, role)!=EOF){
+    while(fscanf(read_file, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, ed.role)!=EOF){
         callbackid = ed.id;
     }
     callbackid++;
