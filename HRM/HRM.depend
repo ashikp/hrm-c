@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1613705701 source:e:\projectbubt\hrm\main.c
+1614059604 source:e:\projectbubt\hrm\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -13,7 +13,7 @@
 	<windows.h>
 	<time.h>
 
-1613583494 source:e:\projectbubt\hrm\login.c
+1614035804 source:e:\projectbubt\hrm\login.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -22,7 +22,7 @@
 	<windows.h>
 	<time.h>
 
-1613704307 source:e:\projectbubt\hrm\important.c
+1614056560 source:e:\projectbubt\hrm\important.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -31,7 +31,14 @@
 	<windows.h>
 	<time.h>
 
-1613703879 source:e:\projectbubt\hrm\menu.c
+1614059153 source:e:\projectbubt\hrm\menu.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
 
 1613592547 source:e:\projectbubt\hrm\user_management.c
 	<stdio.h>
@@ -97,7 +104,25 @@
 1613594585 source:e:\projectbubt\hrm\help.c
 	<stdio.h>
 
-1613703728 source:e:\projectbubt\hrm\financial_management.c
+1613705716 source:e:\projectbubt\hrm\financial_management.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1614057231 source:e:\projectbubt\hrm\time_management.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+
+1614036296 source:e:\projectbubt\hrm\log.c
 	<stdio.h>
 	<conio.h>
 	<string.h>

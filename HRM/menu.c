@@ -1,3 +1,11 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<ctype.h>
+#include<stdlib.h>
+#include<windows.h>
+#include<time.h>
+
 /** Administrator Menu **/
 void Administrator_Menu(){
     system("cls");
@@ -30,6 +38,7 @@ void Administrator_Menu(){
 
     getcod(20,13);
     printf("9. Exit");
+
 
 
     getcod(20,16);
@@ -576,6 +585,9 @@ void admin_fi_view_salary(){
 
 
 /**Financial Menu**/
+
+
+/** Time Menu **/
 void admin_time_menu(){
 system("cls");
 bannerdesign("Time Menu");
@@ -602,7 +614,7 @@ bannerdesign("Time Menu");
             admin_t_clock_in_or_out();
             break;
         case 2:
-            admin_t_time_tracking();
+            admin_employee_time_track();
             break;
         case 3:
             admin_t_attendance_management();
@@ -613,10 +625,89 @@ bannerdesign("Time Menu");
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
             getch();
-            admin_user_menu();
+            admin_time_menu();
         }
 }
 
+void admin_t_clock_in_or_out(){
+system("cls");
+bannerdesign("Clock In Or Out");
+    int select;
+
+    getcod(20,5);
+    printf("1. In");
+
+    getcod(20,6);
+    printf("2. Out");
+
+    getcod(20,7);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_in();
+            break;
+        case 2:
+            admin_out();
+            break;
+        case 3:
+            admin_time_menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_t_clock_in_or_out();
+        }
+
+}
+
+void admin_view_all_employee_attendance(){}
+void admin_t_attendance_management(){
+system("cls");
+bannerdesign("Attendance Management");
+    int select;
+
+    getcod(20,5);
+    printf("1. View All Employee Attendance");
+
+    getcod(20,6);
+    printf("2. View Single Employee Attendance");
+
+    getcod(20,7);
+    printf("3. << Go Back ");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_view_all_employee_attendance();
+            break;
+        case 2:
+            admin_view_single_employee_attendance();
+            break;
+        case 3:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_t_attendance_management();
+        }
+
+
+}
+
+
+
+/** Time Menu **/
 
 void admin_project_menu(){
 system("cls");
@@ -869,126 +960,8 @@ bannerdesign("Rewards");
         }
 
 }
-void admin_in(){}
-void admin_out(){}
-void admin_t_clock_in_or_out(){
-system("cls");
-bannerdesign("Clock In Or Out");
-    int select;
-
-    getcod(20,5);
-    printf("1. In");
-
-    getcod(20,6);
-    printf("2. Out");
-
-    getcod(20,7);
-    printf("3. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_in();
-            break;
-        case 2:
-            admin_out();
-            break;
-        case 3:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-
-}
-void admin_employee_total_time_daily(){}
-void admin_t_time_tracking(){
-system("cls");
-bannerdesign("Time Tracking");
-    int select;
-
-    getcod(20,5);
-    printf("1. Employee Total Time Daily");
-
-    getcod(20,6);
-    printf("2. Employee Overtime");
-
-    getcod(20,7);
-    printf("3. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_employee_total_time_daily();
-            break;
-        case 2:
-            admin_employee_overtime();
-            break;
-        case 3:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-
-}
-void admin_view_all_employee_attendance(){}
-void admin_view_single_employee_attendance(){}
-void admin_t_attendance_management(){
-system("cls");
-bannerdesign("Attendance Management");
-    int select;
-
-    getcod(20,5);
-    printf("1. View All Employee Attendance");
-
-    getcod(20,6);
-    printf("2. View Single Employee Attendance");
-
-    getcod(20,7);
-    printf("3. << Go Back ");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_view_all_employee_attendance();
-            break;
-        case 2:
-            admin_view_single_employee_attendance();
-            break;
-        case 3:
-            admin_assign_facility();
-            break;
-        case 4:
-            admin_employee_with_facility();
-            break;
-        case 5:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
 
 
-}
 void admin_add_project(){}
 void admin_project_status(){}
 void admin_project_resource(){}

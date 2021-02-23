@@ -4,6 +4,5 @@
 int main()
 {
     //welcome();
-    admin_spo_gen();
-
+    admin_view_single_employee_attendance();
 }
