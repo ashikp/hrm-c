@@ -88,6 +88,22 @@ void Administrator_Menu(){
 void Employee_Menu(){
     system("cls");
 bannerdesign("Employee Menu");
+int select;
+getcod(20,5);
+    printf("1. Time Menu \n");
+
+
+switch(select){
+case 1:
+    admin_time_menu();
+    break;
+default:
+                printf("Wrong Input \n");
+                printf("Press any key to Try Again \n");
+                getch();
+                Employee_Menu();
+}
+
 }
 /** Employee Menu **/
 
