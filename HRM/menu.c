@@ -724,43 +724,6 @@ bannerdesign("Attendance Management");
 /** Project Menu **/
 
 void admin_project_menu(){
-system("cls");
-bannerdesign("Project Menu");
-    int select;
-
-    getcod(20,5);
-    printf("1. Projects");
-
-    getcod(20,6);
-    printf("2. Client Management");
-
-    getcod(20,7);
-    printf("3. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_p_projects();
-            break;
-        case 2:
-            admin_p_client_management();
-            break;
-        case 3:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            Administrator_Menu();
-        }
-}
-
-
-void admin_p_projects(){
     system("cls");
 bannerdesign("Projects");
     int select;
@@ -835,13 +798,13 @@ bannerdesign("Projects");
             admin_project_update_status();
             break;
         case 3:
-            admin_p_projects();
+            admin_project_menu();
             break;
         default:
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
             getch();
-            admin_p_projects();
+            admin_project_status();
         }
 
 }

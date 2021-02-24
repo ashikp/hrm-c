@@ -165,7 +165,7 @@ pid++;
         printf("Project Add Complete\n");
         printf("Press any key to go Back \n");
         getch();
-        admin_p_projects();
+        admin_project_menu();
 }
 void admin_project_gen_status(){
     system("cls");
@@ -232,7 +232,7 @@ scanf("%i", &pid);
     rename("data//project//t_project.txt", "data//project//project.txt");
     printf("Press any key to go Back \n");
     getch();
-    admin_p_projects();
+    admin_project_menu();
 
 
 }
@@ -297,7 +297,7 @@ printf("\n");
 fclose(status_check);
 printf("Press any key to go Back \n");
 getch();
-admin_p_projects();
+admin_project_menu();
 }
 
 void admin_project_update_status(){
@@ -333,7 +333,7 @@ while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id
         printf("Enter the Status Update: 1-100");
         scanf("%i", &d_status);
 
-        fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", , p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
+        fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
         update = 1;
     }
 }
