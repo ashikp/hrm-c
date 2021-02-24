@@ -33,7 +33,7 @@ struct view_salary {
     int year;
     char status[50];
 
-}vs;
+}vs,cs;
 
 struct payorder{
     int id;
@@ -312,7 +312,7 @@ void admin_add_pay_order(){
 
     do{
         getcod(20,11);
-        printf("Type(Employee/Company/Other):");
+        printf("Type(Employee/Company/Salary/Other):");
         fflush(stdin);
         gets(po.type);
         for(i=0; i<strlen(po.type); ++i){
@@ -329,7 +329,7 @@ void admin_add_pay_order(){
     }
     while(!vaild);
 
-    if(strcmp(po.type,"employee")==0){
+    if(strcmp(po.type,"employee")==0 || strcmp(po.type,"salary")==0){
         getcod(20,12);
         printf("Employee Id: ");
         scanf("%i", &po.employee_id);
@@ -444,6 +444,11 @@ void admin_release_pay_order(){
     bannerdesign("Release Pay Order");
     FILE *mainfile = fopen("data/payorder.txt", "rb+");
     FILE *tempfile = fopen("data/po_temp.txt", "aw+");
+    char getfile[100], getfile_t[100];
+    sprintf(getfile, "data/salary/salary_%s_%i.txt", getlocalmonth(), getlocalyear());
+    sprintf(getfile_t, "data/salary/t_salary_%s_%i.txt", getlocalmonth(), getlocalyear());
+    FILE *salary = fopen(getfile,"rb");
+    FILE *t_salary = fopen(getfile,"aw+");
     int id, found, answer;
 
 
@@ -502,26 +507,4 @@ void admin_release_pay_order(){
     printf("Press any key to go Back \n");
     getch();
     admin_fi_payroll();
-}
-
-void admin_spo_gen(){
-    system("cls");
-    bannerdesign("Salary Sheet Pay Orders Generator");
-    int callbackid = 0;
-    char getfile[50];
-    sprintf(getfile, "data/salary/salary_%s_%i.txt", toupper(getlocalmonth()),getlocalyear());
-
-    FILE *salarysheet = fopen(getfile, "rb+");
-    FILE *payorder = fopen("data/payorder.txt", "awb+");
-    while(fscanf(payorder, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF){
-        callbackid = po.id;
-    }
-    callbackid++;
-
-    while(fscanf(salarysheet, "%i %s %s %i %s %i %s\n\n", &vs.id, vs.first_name, vs.last_name, &vs.salary, vs.month, &vs.year, vs.status)!=EOF){
-        char type[50] = "employee";
-        char status[50] = "Pending";
-        char date[50] = "01-02-2021";
-        fprintf(payorder, "%i %s %s %i %s %i %s\n\n", callbackid, date, vs.first_name, vs.salary,type,vs.id,status);
-    }
 }

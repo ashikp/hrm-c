@@ -435,8 +435,6 @@ void admin_financial_menu(){
     getcod(20,6);
     printf("3. Salary Administration");
 
-
-
     getcod(20,7);
     printf("4. Rewards");
 
@@ -490,14 +488,8 @@ void admin_fi_payroll(){
     getcod(20,8);
     printf("4. Release Pay Order");
 
-    getcod(20,9);
-    printf("5. Expense");
-
-    getcod(20,10);
-    printf("6. Provident  Fund");
-
     getcod(20,11);
-    printf("7. << Go Back");
+    printf("5. << Go Back");
 
     getcod(20,12);
     printf("Select Menu:     ");
@@ -517,12 +509,6 @@ void admin_fi_payroll(){
             admin_release_pay_order();
             break;
         case 5:
-            admin_expense();
-            break;
-        case 6:
-            admin_provident_fund();
-            break;
-        case 7:
             Administrator_Menu();
             break;
         default:
