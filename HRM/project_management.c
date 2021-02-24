@@ -299,3 +299,52 @@ printf("Press any key to go Back \n");
 getch();
 admin_p_projects();
 }
+
+void admin_project_update_status(){
+system("cls");
+bannerdesign("Edit Project");
+
+int pid, found=0, d_status, update = 0;
+
+getcod(5,6);
+printf("Enter the Project Id: ");
+scanf("%i", &pid);
+
+FILE * status = fopen("data/project/status.txt", "rb+");
+FILE * t_status = fopen("data/project/t_status.txt", "aw+");
+
+while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF){
+    if(pid!=p.project_id){
+        fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, p.status);
+    }else{
+        found =1;
+    }
+    if(pid==p.project_id){
+        getcod(5,8);
+        printf("ID: %i", p.main_id);
+        getcod(5,9);
+        printf("Project ID: %i", p.project_id);
+        getcod(5,10);
+        printf("Project Name: %s", p.projectname);
+        getcod(5,11);
+        printf("Project Status: %i %", p.status);
+
+        getcod(5,13);
+        printf("Enter the Status Update: 1-100");
+        scanf("%i", &d_status);
+
+        fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", , p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
+        update = 1;
+    }
+}
+    if(!update){
+        printf("Record Not Found \n");
+    }else{
+        printf("Record Updated \n");
+    }
+    fclose(status);
+    fclose(t_status);
+    printf("Press any key to go Back \n");
+    getch();
+    admin_project_status();
+}

@@ -829,10 +829,10 @@ bannerdesign("Projects");
 
         switch(select){
         case 1:
-            admin_add_project();
+            admin_project_gen_status();
             break;
         case 2:
-            admin_project_gen_status();
+            admin_project_update_status();
             break;
         case 3:
             admin_p_projects();
