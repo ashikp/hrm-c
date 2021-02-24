@@ -72,7 +72,7 @@ void admin_in(){
         system("cls");
         bannerdesign("Employee Clock IN");
 
-        FILE * c_l_e = fopen("data/employee_logs.txt", "rb");
+        FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
         int uid;
 
         while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF){
@@ -101,7 +101,7 @@ void admin_out(){
         system("cls");
         bannerdesign("Employee Clock IN");
 
-        FILE * c_l_e = fopen("data/employee_logs.txt", "rb");
+        FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
         int uid;
 
         while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF){
@@ -130,7 +130,7 @@ void admin_out(){
 
 void e_report_m(){
 
-        FILE * c_l_e = fopen("data/employee_logs.txt", "rb");
+        FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
         int uid;
 
         while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF){
@@ -180,7 +180,7 @@ void admin_employee_time_track(){
         bannerdesign("Employee Time Track");
         e_report_m();
 
-        FILE * c_l_e = fopen("data/employee_logs.txt", "rb");
+        FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
         int uid,i,post=12,size;
 
         while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF){

@@ -22,9 +22,9 @@ int uid;
 void read_logs(){
     system("cls");
     bannerdesign("User Login Logs");
-    FILE *a_logfile = fopen("data/admin_logs.txt", "rb");
-    FILE *e_logfile = fopen("data/employee_logs.txt", "rb");
-    FILE *c_logfile = fopen("data/client_logs.txt", "rb");
+    FILE *a_logfile = fopen("data/logs/admin_logs.txt", "rb");
+    FILE *e_logfile = fopen("data/logs/employee_logs.txt", "rb");
+    FILE *c_logfile = fopen("data/logs/client_logs.txt", "rb");
     int post=15;
     getcod(5,6);
     printf("1. Admin Logs\n");

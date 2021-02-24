@@ -23,9 +23,9 @@ FILE *userdata_file;
 
 userdata_file = fopen("data/users.txt", "rb");
 
-FILE *a_logs = fopen("data/admin_logs.txt","aw+");
-FILE *e_logs = fopen("data/employee_logs.txt","aw+");
-FILE *c_logs = fopen("data/client_logs.txt","aw+");
+FILE *a_logs = fopen("data/logs/admin_logs.txt","aw+");
+FILE *e_logs = fopen("data/logs/employee_logs.txt","aw+");
+FILE *c_logs = fopen("data/logs/client_logs.txt","aw+");
 
 system("cls");
 bannerdesign("Login Menu");

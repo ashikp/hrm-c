@@ -20,7 +20,7 @@ void welcome(){
     getcod(25,11);
     printf("        =                 HUMAN                     =");
     getcod(25,12);
-    printf("        =               RESOURCE                    =");
+    printf("        =                 RESOURCE                  =");
     getcod(25,13);
     printf("        =                 MANAGEMENT                =");
     getcod(25,14);
@@ -38,7 +38,7 @@ void welcome(){
 void bannerdesign(char title[]){
 
     printf("\n------------------------------------------------------------------------------------------------");
-    getcod(20,2);
+    getcod(40,2);
     printf("%s", title);
     printf("\n------------------------------------------------------------------------------------------------");
 }

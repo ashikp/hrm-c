@@ -28,13 +28,13 @@ void Administrator_Menu(){
     printf("5. User Menu"); //user_management.c
 
     getcod(20,10);
-    printf("6. Project Menu");
+    printf("6. Project Menu"); //project_management.c
 
     getcod(20,11);
     printf("7. Reports");
 
     getcod(20,12);
-    printf("8. Help"); // help.c
+    printf("8. Software Manual"); // help.c
 
     getcod(20,13);
     printf("9. Exit");
@@ -689,14 +689,11 @@ system("cls");
 bannerdesign("Attendance Management");
     int select;
 
-    getcod(20,5);
-    printf("1. View All Employee Attendance");
-
     getcod(20,6);
-    printf("2. View Single Employee Attendance");
+    printf("1. View Single Employee Attendance");
 
     getcod(20,7);
-    printf("3. << Go Back ");
+    printf("2. << Go Back ");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -704,12 +701,9 @@ bannerdesign("Attendance Management");
 
         switch(select){
         case 1:
-            admin_view_all_employee_attendance();
-            break;
-        case 2:
             admin_view_single_employee_attendance();
             break;
-        case 3:
+        case 2:
             Administrator_Menu();
             break;
         default:
@@ -725,6 +719,9 @@ bannerdesign("Attendance Management");
 
 
 /** Time Menu **/
+
+
+/** Project Menu **/
 
 void admin_project_menu(){
 system("cls");
@@ -758,9 +755,100 @@ bannerdesign("Project Menu");
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
             getch();
-            admin_user_menu();
+            Administrator_Menu();
         }
 }
+
+
+void admin_p_projects(){
+    system("cls");
+bannerdesign("Projects");
+    int select;
+
+    getcod(20,4);
+    printf("1. Add Project");
+
+    getcod(20,5);
+    printf("2. Project Status");
+
+
+    getcod(20,6);
+    printf("3. Delete Project");
+
+    getcod(20,7);
+    printf("4. View Project");
+
+    getcod(20,8);
+    printf("5. << Go Back");
+
+    getcod(20,9);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_add_project();
+            break;
+        case 2:
+            admin_project_status();
+            break;
+        case 3:
+            admin_delete_project();
+            break;
+        case 4:
+            admin_view_project();
+            break;
+        case 5:
+            Administrator_Menu();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_project_menu();
+        }
+}
+
+void admin_project_status(){
+    system("cls");
+bannerdesign("Projects");
+    int select;
+
+    getcod(20,4);
+    printf("1. Generate Project Status");
+
+    getcod(20,5);
+    printf("2. Update Project Status");
+
+    getcod(20,6);
+    printf("3. << Go Back");
+
+    getcod(20,10);
+    printf("Select Menu:     ");
+    scanf("%i", &select);
+
+        switch(select){
+        case 1:
+            admin_add_project();
+            break;
+        case 2:
+            admin_project_gen_status();
+            break;
+        case 3:
+            admin_p_projects();
+            break;
+        default:
+            printf("Wrong Input \n");
+            printf("Press any key to Try Again \n");
+            getch();
+            admin_p_projects();
+        }
+
+}
+
+
+
+/** Project Menu **/
 void admin_reports(){}
 
 
@@ -979,64 +1067,8 @@ bannerdesign("Rewards");
 }
 
 
-void admin_add_project(){}
-void admin_project_status(){}
-void admin_project_resource(){}
-void admin_delete_project(){}
-void admin_view_project(){}
-void admin_p_projects(){
-    system("cls");
-bannerdesign("Projects");
-    int select;
 
-    getcod(20,4);
-    printf("1. Add Project");
 
-    getcod(20,5);
-    printf("2. Project Status");
-
-    getcod(20,6);
-    printf("3. Project Resource");
-
-    getcod(20,7);
-    printf("4. Delete Project");
-
-    getcod(20,8);
-    printf("5. View Project");
-
-    getcod(20,9);
-    printf("6. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_add_project();
-            break;
-        case 2:
-            admin_project_status();
-            break;
-        case 3:
-            admin_project_resource();
-            break;
-        case 4:
-            admin_delete_project();
-            break;
-        case 5:
-            admin_view_project();
-            break;
-        case 6:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-}
 void admin_add_client(){}
 void admin_delete_client(){}
 void admin_view_client(){}
