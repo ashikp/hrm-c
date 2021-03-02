@@ -38,7 +38,7 @@ system("cls");
 bannerdesign("Add Project");
 FILE * project = fopen("data/project/project.txt", "aw+");
 FILE * userchecking = fopen("data/users.txt", "rb+");
-FILE * useradd = fopen("data/users.txt", "aw+");
+FILE * useradd = fopen("data/users.txt", "aw");
 char role[2] = "C";
 int vaild = 0, id=100, pid=1010,i;
 
@@ -47,7 +47,7 @@ while(fscanf(userchecking, "%i %s %s %s %s %s", &aue.id, aue.username, aue.passw
     p.customer_id = aue.id;
 }
 
-while(fscanf(project, "%i %i \"%s\" %s %s %i %s %s %i %s\n\n", &cp.main_id, &cp.project_id, cp.projectname, cp.firstname_customer, cp.lastname_customer, &cp.customer_id, cp.project_start, cp.project_end, &cp.employee_assign_id, cp.project_manager)!=EOF){
+while(fscanf(project, "%i %i %s %s %s %i %s %s %i %s\n\n", &cp.main_id, &cp.project_id, cp.projectname, cp.firstname_customer, cp.lastname_customer, &cp.customer_id, cp.project_start, cp.project_end, &cp.employee_assign_id, cp.project_manager)!=EOF){
     if(cp.main_id==""){
         id=100;
     }else{
@@ -61,6 +61,7 @@ while(fscanf(project, "%i %i \"%s\" %s %s %i %s %s %i %s\n\n", &cp.main_id, &cp.
 }
 id++;
 pid++;
+p.customer_id++;
 
 
 
@@ -93,7 +94,7 @@ pid++;
         getcod(5,8);
         printf("Enter Customer Last Name: ");
         fflush(stdin);
-        gets(p.firstname_customer);
+        gets(p.lastname_customer);
         for(i=0; i<strlen(p.lastname_customer); ++i){
                 if(isalpha(p.lastname_customer[i])){
                     vaild = 1;
@@ -167,6 +168,7 @@ pid++;
         getch();
         admin_project_menu();
 }
+
 void admin_project_gen_status(){
     system("cls");
     bannerdesign("View Projects");
@@ -200,6 +202,8 @@ fclose(project);
         admin_project_status();
 
 }
+
+
 void admin_delete_project(){
 system("cls");
 bannerdesign("Delete Projects");
@@ -330,7 +334,7 @@ while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id
         printf("Project Status: %i %", p.status);
 
         getcod(5,13);
-        printf("Enter the Status Update: 1-100");
+        printf("Enter the Status Update(1-100):");
         scanf("%i", &d_status);
 
         fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
@@ -344,6 +348,8 @@ while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id
     }
     fclose(status);
     fclose(t_status);
+    remove("data//project//status.txt");
+    rename("data//project//t_status.txt", "data//project//status.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_project_status();

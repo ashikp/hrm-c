@@ -23,10 +23,13 @@ void add_user(){
     int callbackid;
 
     FILE *add_user_file;
-    add_user_file = fopen("data/users.txt", "a");
-    FILE *readfile = fopen("data/users.txt", "r");
+    add_user_file = fopen("data/users.txt", "aw");
+    FILE *readfile = fopen("data/users.txt", "rb");
 
     while(fscanf(readfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
+        if(aue.id==""){
+            callbackid = 0;
+        }
         callbackid = aue.id;
     }
 
@@ -116,7 +119,7 @@ void add_user(){
     printf("User Add Complete\n");
     getch();
     printf("Press any key to go Back \n");
-    admin_user_management();
+    admin_user_menu();
 
 }
 void delete_user(){
@@ -148,7 +151,7 @@ void delete_user(){
     rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
-    admin_user_management();
+    admin_user_menu();
 
 }
 void view_user(){
@@ -193,7 +196,7 @@ void view_user(){
     fclose(mainfile);
     printf("Press any key to go Back \n");
     getch();
-    admin_user_management();
+    admin_user_menu();
 }
 void update_user(){
     system("cls");
@@ -336,6 +339,6 @@ void update_user(){
     rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
-    admin_user_management();
+    admin_user_menu();
 
 }

@@ -244,43 +244,6 @@ bannerdesign("Information Database");
 /** 5. User Management **/
 void admin_user_menu(){
     system("cls");
-    bannerdesign("User Menu");
-    int select;
-
-    getcod(20,5);
-    printf("1. User Management");
-
-    getcod(20,6);
-    printf("2. Role Control Policy");
-
-    getcod(20,7);
-    printf("3. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_user_management();
-            break;
-        case 2:
-            admin_role_control_policy();
-            break;
-        case 3:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-
-}
-
-void admin_user_management(){
-    system("cls");
     bannerdesign("User Management");
 
         int select;
@@ -319,57 +282,14 @@ void admin_user_management(){
                     delete_user();
                     break;
                 case 5:
-                    admin_user_menu();
+                    Administrator_Menu();
                     break;
                 default:
                     printf("Wrong Input \n");
                     printf("Press any key to Try Again \n");
                     getch();
-                    admin_user_management();
+                    admin_user_menu();
             }
-
-}
-
-void admin_role_control_policy(){
-    system("cls");
-    bannerdesign("Role Control Policy");
-    int select;
-
-    getcod(20,5);
-    printf("1. Administrative Feature");
-
-    getcod(20,6);
-    printf("2. Employee Feature");
-
-    getcod(20,7);
-    printf("3. Client Feature");
-
-    getcod(20,8);
-    printf("4. << Go Back ");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_administrative_feature();
-            break;
-        case 2:
-            admin_employee_feature();
-            break;
-        case 3:
-            admin_client_feature();
-            break;
-        case 4:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
 
 }
 /** User Management **/
@@ -545,11 +465,14 @@ void admin_fi_salary_administration(){
     case 2:
         admin_fi_view_salary();
         break;
+    case 3:
+        admin_financial_menu();
+        break;
     default:
         printf("Wrong Input \n");
         printf("Press any key to Try Again \n");
         getch();
-        admin_financial_menu();
+        admin_fi_salary_administration();
     }
 
 
@@ -690,7 +613,7 @@ bannerdesign("Attendance Management");
             admin_view_single_employee_attendance();
             break;
         case 2:
-            Administrator_Menu();
+            admin_time_menu();
             break;
         default:
             printf("Wrong Input \n");

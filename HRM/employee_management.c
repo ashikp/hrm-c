@@ -43,7 +43,7 @@ void admin_add_employee(){
     callbackid++;
 
     do{
-    getcod(20,6);
+    getcod(10,6);
     printf("Enter First Name:   ");
     fflush(stdin);
     gets(ed.first_name);
@@ -56,12 +56,13 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Name Can't have Number on it. \n");
+        getcod(50,6);
+        printf("First Name Can't have Number on it.");
     }
     }
     while(!vaild);
     do{
-    getcod(20,7);
+    getcod(10,7);
     printf("Enter Last Name:   ");
     fflush(stdin);
     gets(ed.last_name);
@@ -74,14 +75,15 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Name Can't have Number on it. \n");
+        getcod(50,7);
+        printf("Last Name Can't have Number on it.");
     }
     }
     while(!vaild);
 
 
     do{
-    getcod(20,8);
+    getcod(10,8);
     printf("Enter UserName:   ");
     fflush(stdin);
     gets(ed.username);
@@ -90,7 +92,7 @@ void admin_add_employee(){
     while(!vaild);
 
     do{
-    getcod(20,9);
+    getcod(10,9);
     printf("Enter Password:   ");
     fflush(stdin);
     gets(ed.password);
@@ -99,7 +101,7 @@ void admin_add_employee(){
     while(!vaild);
 
     do{
-    getcod(20,10);
+    getcod(10,10);
     printf("Enter Father's Name:   ");
     fflush(stdin);
     gets(ed.father_name);
@@ -112,13 +114,14 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Father's Name Can't have Number on it. \n");
+            getcod(50,10);
+        printf("Father's Name Can't have Number on it.");
     }
     }
     while(!vaild);
 
     do{
-    getcod(20,11);
+    getcod(10,11);
     printf("Enter Mother's Name:   ");
     fflush(stdin);
     gets(ed.mother_name);
@@ -131,13 +134,14 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Mother's Name Can't have Number on it. \n");
+            getcod(50,11);
+        printf("Mother's Name Can't have Number on it.");
     }
     }
     while(!vaild);
 
     do{
-    getcod(20,12);
+    getcod(10,12);
     printf("Enter Mailing Address:   ");
     fflush(stdin);
     gets(ed.mailing_address);
@@ -145,20 +149,20 @@ void admin_add_employee(){
     while(!vaild);
 
     do{
-    getcod(20,13);
+    getcod(10,13);
     printf("Enter Permanent Address:   ");
     fflush(stdin);
     gets(ed.permanent_address);
     }
     while(!vaild);
 
-    getcod(20,14);
+    getcod(10,14);
     printf("Enter NID Number(10-17 Digits Only):   ");
     scanf("%i", &ed.nid_number);
 
 
     do{
-    getcod(20,15);
+    getcod(10,15);
     printf("Enter Previous Job Company Name:   ");
     fflush(stdin);
     gets(ed.pjob_company_name);
@@ -171,13 +175,14 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Previous Job Company Name Can't have Number on it. \n");
+            getcod(50,15);
+        printf("Previous Job Company Name Can't have Number on it.");
     }
     }
     while(!vaild);
 
     do{
-    getcod(20,16);
+    getcod(10,16);
     printf("Enter Joining Date(01-01-2021):   ");
     fflush(stdin);
     gets(ed.join_date);
@@ -186,7 +191,7 @@ void admin_add_employee(){
     while(!vaild);
 
         do{
-    getcod(20,17);
+    getcod(10,17);
     printf("Enter Department:   ");
     fflush(stdin);
     gets(ed.department);
@@ -199,17 +204,18 @@ void admin_add_employee(){
         }
     }
     if(!vaild){
-        printf("\n Department Can't have Number on it. \n");
+            getcod(50,17);
+        printf("Department Can't have Number on it.");
     }
     }
     while(!vaild);
 
-    getcod(20,18);
+    getcod(10,18);
     printf("Enter Salary:   ");
     scanf("%i", &ed.salary);
 
     do{
-    getcod(20,19);
+    getcod(10,19);
     printf("Enter Date of Birth(01-01-1999):   ");
     fflush(stdin);
     gets(ed.dob);
@@ -290,6 +296,8 @@ admin_view_employee(){
     printf("Date of Birth");
     getcod(58,6);
     printf("NID");
+    getcod(75,6);
+    printf("Salary");
     getcod(0,7);
     for(i=0; i<95; i++){
         printf("-");
@@ -305,6 +313,8 @@ admin_view_employee(){
         printf("%s", ed.dob);
         getcod(58,post);
         printf("%i", ed.nid_number);
+        getcod(75,post);
+        printf("%i", ed.salary);
         post++;
     }
     printf("\n");
