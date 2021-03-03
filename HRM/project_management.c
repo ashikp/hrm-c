@@ -703,6 +703,7 @@ void client_view_project_status()
         }
     }
     if(!notfound){
+            getcod(5,post);
         printf("No Project Found");
     }
     printf("\n");
@@ -712,7 +713,7 @@ void client_view_project_status()
     }
 
     fclose(status_check);
-    printf("\nPress any key to go Back \n");
+    printf("\n Press any key to go Back \n");
     getch();
     Client_Menu();
 }

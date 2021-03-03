@@ -129,6 +129,8 @@ void Client_Menu()
     printf("1. Project Status");
     getcod(20,6);
     printf("2. Exit");
+    getcod(20,8);
+    printf("Select Options: ")
     scanf("%i", &select);
 
     switch(select){
