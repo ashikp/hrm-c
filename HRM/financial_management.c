@@ -311,6 +311,7 @@ void admin_add_pay_order()
         printf("Date(01-01-2021):   ");
         fflush(stdin);
         gets(po.date);
+        break;
     }
     while(!vaild);
 

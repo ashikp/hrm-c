@@ -70,7 +70,8 @@ void add_user(){
         }
     }
     if(!vaild){
-        printf("\n First Name Can't have Number on it. \n");
+        getcod(50,9);
+        printf("First Name Can't have Number on it. \n");
     }
     }
     while(!vaild);
@@ -89,7 +90,8 @@ void add_user(){
         }
     }
     if(!vaild){
-        printf("\n Last Name Can't have Number on it. \n");
+            getcod(50,10);
+        printf("Last Name Can't have Number on it. \n");
     }
     }
     while(!vaild);
@@ -108,7 +110,8 @@ void add_user(){
         }
     }
     if(!vaild){
-        printf("\n Role Can't have Number on it. \n");
+            getcod(50,11);
+        printf("Role Can't have Number on it. \n");
     }
     }
     while(!vaild);
@@ -236,17 +239,7 @@ void update_user(){
                 printf("Enter Username:   ");
                 fflush(stdin);
                 gets(aue.username);
-                for(i=0; i<strlen(aue.username); ++i){
-                    if(isalpha(aue.username[i])){
-                        vaild = 1;
-                    }else{
-                        vaild = 0;
-                        break;
-                    }
-                }
-                if(!vaild){
-                    printf("\n UserName Can't have Number on it. \n");
-                }
+                    break;
                 }
                 while(!vaild);
 

@@ -558,6 +558,7 @@ bannerdesign("Time Menu");
             break;
         case 4:
             Administrator_Menu();
+            break;
         default:
             printf("Wrong Input \n");
             printf("Press any key to Try Again \n");
