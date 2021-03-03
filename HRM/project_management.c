@@ -561,9 +561,14 @@ void employee_view_project_status()
 {
     system("cls");
     bannerdesign("View Projects Status");
-
+    FILE * employee_log = fopen("data/logs/employee_logs.txt", "rb");
     FILE *status_check = fopen("data/project/status.txt","rb");
-    int i, post=8;
+    int i, post=8, uid, notfound=0;
+    while(fscanf(employee_log,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF)
+    {
+        uid = gd.uid;
+    }
+    fclose(employee_log);
 
     getcod(5,6);
     printf("ID");
@@ -591,32 +596,38 @@ void employee_view_project_status()
 
     while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
     {
-        getcod(5,post);
-        printf("%i", p.main_id);
-        getcod(9,post);
-        printf("%i", p.project_id);
-        getcod(16,post);
-        printf("%s", p.projectname);
-        getcod(30,post);
-        printf("%i", p.customer_id);
-        getcod(40,post);
-        printf("%i", p.employee_assign_id);
-        getcod(46,post);
-        printf("%s", p.project_end);
-        getcod(65,post);
-        if(p.status==100)
-        {
-            printf("Complete");
+        if(uid==p.employee_assign_id){
+            getcod(5,post);
+            printf("%i", p.main_id);
+            getcod(9,post);
+            printf("%i", p.project_id);
+            getcod(16,post);
+            printf("%s", p.projectname);
+            getcod(30,post);
+            printf("%i", p.customer_id);
+            getcod(40,post);
+            printf("%i", p.employee_assign_id);
+            getcod(46,post);
+            printf("%s", p.project_end);
+            getcod(65,post);
+            if(p.status==100)
+            {
+                printf("Complete");
+            }
+            else if(p.status < 100 && p.status > 1)
+            {
+                printf("In Process");
+            }
+            else
+            {
+                printf("Pending to Start");
+            }
+            post++;
+            notfound=1;
         }
-        else if(p.status < 100 && p.status > 1)
-        {
-            printf("In Process");
-        }
-        else
-        {
-            printf("Pending to Start");
-        }
-        post++;
+    }
+    if(!notfound){
+        printf("No Project Found");
     }
     printf("\n");
     for(i=0; i<96; i++)
