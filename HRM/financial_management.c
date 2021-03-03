@@ -6,7 +6,8 @@
 #include<windows.h>
 #include<time.h>
 
-struct employee_data{
+struct employee_data
+{
     int id;
     char first_name[50];
     char last_name[50];
@@ -22,9 +23,10 @@ struct employee_data{
     char department[50];
     int salary;
     char dob[50];
-}ed;
+} ed;
 
-struct view_salary {
+struct view_salary
+{
     int id;
     char first_name[50];
     char last_name[50];
@@ -33,9 +35,10 @@ struct view_salary {
     int year;
     char status[50];
 
-}vs,cs;
+} vs,cs, rs;
 
-struct payorder{
+struct payorder
+{
     int id;
     char date[50];
     char payto[50];
@@ -43,10 +46,11 @@ struct payorder{
     char type[50];
     int amount;
     char status[50];
-}po;
+} po;
 
 
-void admin_fi_gen_salary_sheet(){
+void admin_fi_gen_salary_sheet()
+{
 
 
     system("cls");
@@ -61,16 +65,20 @@ void admin_fi_gen_salary_sheet(){
     getcod(20,6);
     printf("Generating Salary Sheet of %s Year: %i", getlocalmonth(), getlocalyear());
 
-    while(fscanf(efile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
+    while(fscanf(efile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF)
+    {
         fprintf(sfile, "%i %s %s %i %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.salary, getlocalmonth(),getlocalyear(), status);
         found = 1;
     }
     fclose(efile);
     fclose(sfile);
-    if(!found){
+    if(!found)
+    {
         getcod(20,8);
         printf("Salary Can't Sheet Generated.\n\n");
-    }else{
+    }
+    else
+    {
         getcod(20,8);
         printf("Salary Sheet Generated.\n\n");
     }
@@ -80,7 +88,8 @@ void admin_fi_gen_salary_sheet(){
 
 }
 
-void admin_fi_vs_month(){
+void admin_fi_vs_month()
+{
 
     system("cls");
     bannerdesign("Watch By Month");
@@ -95,7 +104,8 @@ void admin_fi_vs_month(){
     getcod(20,7);
     printf("Enter Month(Jan): ");
     scanf("%s", &month);
-    if(tolower(month)){
+    if(tolower(month))
+    {
         toupper(month);
     }
 
@@ -104,7 +114,8 @@ void admin_fi_vs_month(){
 
     FILE *sfile = fopen(getfile,"rb+");
     getcod(0,8);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     getcod(5,9);
@@ -129,11 +140,13 @@ void admin_fi_vs_month(){
     printf("Status");
 
     getcod(0,10);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
 
-    while(fscanf(sfile, "%i %s %s %i %s %i %s\n\n", &vs.id, vs.first_name, vs.last_name, &vs.salary, vs.month, &vs.year, vs.status)!=EOF){
+    while(fscanf(sfile, "%i %s %s %i %s %i %s\n\n", &vs.id, vs.first_name, vs.last_name, &vs.salary, vs.month, &vs.year, vs.status)!=EOF)
+    {
         getcod(5,post);
         printf("%i", vs.id);
 
@@ -158,7 +171,8 @@ void admin_fi_vs_month(){
     }
 
     printf("\n");
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     printf("\n");
@@ -168,7 +182,8 @@ void admin_fi_vs_month(){
     admin_fi_salary_administration();
 }
 
-void admin_fi_vs_single(){
+void admin_fi_vs_single()
+{
     system("cls");
     bannerdesign("Watch by ID");
 
@@ -186,7 +201,8 @@ void admin_fi_vs_single(){
     getcod(20,8);
     printf("Enter Month(Jan): ");
     scanf("%s", &month);
-    if(tolower(month)){
+    if(tolower(month))
+    {
         toupper(month);
     }
 
@@ -196,7 +212,8 @@ void admin_fi_vs_single(){
     FILE *sfile = fopen(getfile,"rb+");
 
     getcod(0,9);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     getcod(5,10);
@@ -221,35 +238,39 @@ void admin_fi_vs_single(){
     printf("Status");
 
     getcod(0,11);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
-    while(fscanf(sfile, "%i %s %s %i %s %i %s\n\n", &vs.id, vs.first_name, vs.last_name, &vs.salary, vs.month, &vs.year, vs.status)!=EOF){
-            if(vs.id==id){
-                getcod(5,post);
-                printf("%i", vs.id);
+    while(fscanf(sfile, "%i %s %s %i %s %i %s\n\n", &vs.id, vs.first_name, vs.last_name, &vs.salary, vs.month, &vs.year, vs.status)!=EOF)
+    {
+        if(vs.id==id)
+        {
+            getcod(5,post);
+            printf("%i", vs.id);
 
-                getcod(12,post);
-                printf("%s", vs.first_name);
+            getcod(12,post);
+            printf("%s", vs.first_name);
 
-                getcod(25,post);
-                printf("%s", vs.last_name);
+            getcod(25,post);
+            printf("%s", vs.last_name);
 
-                getcod(35,post);
-                printf("%i", vs.salary);
+            getcod(35,post);
+            printf("%i", vs.salary);
 
-                getcod(45,post);
-                printf("%s", vs.month);
+            getcod(45,post);
+            printf("%s", vs.month);
 
-                getcod(55,post);
-                printf("%i", vs.year);
+            getcod(55,post);
+            printf("%i", vs.year);
 
-                getcod(65,post);
-                printf("%s", vs.status);
-            }
+            getcod(65,post);
+            printf("%s", vs.status);
         }
+    }
     printf("\n");
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     printf("\n");
@@ -261,7 +282,8 @@ void admin_fi_vs_single(){
 }
 
 
-void admin_add_pay_order(){
+void admin_add_pay_order()
+{
     system("cls");
     bannerdesign("Add Pay Order");
     int vaild,callbackid=0,i;
@@ -270,38 +292,49 @@ void admin_add_pay_order(){
     FILE *pfile = fopen("data/payorder.txt", "a+");
     FILE *rfile = fopen("data/payorder.txt", "rb+");
 
-    while(fscanf(rfile,"%i %s %s %i %s %i %s\n\n",&po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF){
-        if(po.id==""){
+    while(fscanf(rfile,"%i %s %s %i %s %i %s\n\n",&po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF)
+    {
+        if(po.id=="")
+        {
             callbackid = 0;
-        }else{
+        }
+        else
+        {
             callbackid = po.id;
         }
     }
     callbackid++;
 
-    do{
-    getcod(20,8);
-    printf("Date(01-01-2021):   ");
-    fflush(stdin);
-    gets(po.date);
+    do
+    {
+        getcod(20,8);
+        printf("Date(01-01-2021):   ");
+        fflush(stdin);
+        gets(po.date);
     }
     while(!vaild);
 
-    do{
+    do
+    {
         getcod(20,9);
         printf("Pay To: ");
         fflush(stdin);
         gets(po.payto);
-        for(i=0; i<strlen(po.payto); ++i){
-        if(isalpha(po.payto[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+        for(i=0; i<strlen(po.payto); ++i)
+        {
+            if(isalpha(po.payto[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-        }
-        if(!vaild){
-        printf("\n Pay To Can't have Number on it. \n");
+        if(!vaild)
+        {
+            printf("\n Pay To Can't have Number on it. \n");
         }
     }
     while(!vaild);
@@ -310,30 +343,39 @@ void admin_add_pay_order(){
     printf("Amount: ");
     scanf("%i", &po.amount);
 
-    do{
+    do
+    {
         getcod(20,11);
         printf("Type(Employee/Company/Salary/Other):");
         fflush(stdin);
         gets(po.type);
-        for(i=0; i<strlen(po.type); ++i){
-        if(isalpha(po.type[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+        for(i=0; i<strlen(po.type); ++i)
+        {
+            if(isalpha(po.type[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-        }
-        if(!vaild){
-        printf("\n Type Can't have Number on it. \n");
+        if(!vaild)
+        {
+            printf("\n Type Can't have Number on it. \n");
         }
     }
     while(!vaild);
 
-    if(strcmp(po.type,"employee")==0 || strcmp(po.type,"salary")==0){
+    if(strcmp(po.type,"employee")==0 || strcmp(po.type,"salary")==0)
+    {
         getcod(20,12);
         printf("Employee Id: ");
         scanf("%i", &po.employee_id);
-    }else{
+    }
+    else
+    {
         po.employee_id = 0;
     }
 
@@ -349,7 +391,8 @@ void admin_add_pay_order(){
 
 }
 
-void admin_view_pay_order(){
+void admin_view_pay_order()
+{
     system("cls");
     bannerdesign("View Pay Orders");
 
@@ -374,28 +417,31 @@ void admin_view_pay_order(){
 
 
     getcod(0,7);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
-    while(fscanf(pfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF){
-    getcod(5,post);
-    printf("%i", po.id);
-    getcod(12,post);
-    printf("%s", po.date);
-    getcod(22,post);
-    printf("%s", po.payto);
-    getcod(32,post);
-    printf("%i", po.amount);
-    getcod(42,post);
-    printf("%s", po.type);
-    getcod(52,post);
-    printf("%i", po.employee_id);
-    getcod(65,post);
-    printf("%s", po.status);
+    while(fscanf(pfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF)
+    {
+        getcod(5,post);
+        printf("%i", po.id);
+        getcod(12,post);
+        printf("%s", po.date);
+        getcod(22,post);
+        printf("%s", po.payto);
+        getcod(32,post);
+        printf("%i", po.amount);
+        getcod(42,post);
+        printf("%s", po.type);
+        getcod(52,post);
+        printf("%i", po.employee_id);
+        getcod(65,post);
+        printf("%s", po.status);
         post++;
     }
     printf("\n");
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     printf("\n");
@@ -406,7 +452,8 @@ void admin_view_pay_order(){
 }
 
 
-void admin_delete_pay_order(){
+void admin_delete_pay_order()
+{
     system("cls");
     bannerdesign("Delete Pay Order");
     FILE *mainfile = fopen("data/payorder.txt", "rb+");
@@ -417,16 +464,23 @@ void admin_delete_pay_order(){
     printf("Enter Id: ");
     scanf("%i", &id);
 
-    while(fscanf(mainfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF){
-        if(id!=po.id){
+    while(fscanf(mainfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF)
+    {
+        if(id!=po.id)
+        {
             fprintf(tempfile, "%i %s %s %i %s %i %s\n\n", po.id, po.date, po.payto, po.amount, po.type, po.employee_id, po.status);
-        }else{
+        }
+        else
+        {
             found = 1;
         }
     }
-    if(!found){
+    if(!found)
+    {
         printf("Record Not Found \n");
-    }else{
+    }
+    else
+    {
         printf("Record Updated \n");
     }
     fclose(mainfile);
@@ -438,8 +492,128 @@ void admin_delete_pay_order(){
     admin_fi_payroll();
 
 }
+void admin_release_salary_single()
+{
+    system("cls");
+    bannerdesign("Release Salary");
+    char month[100];
+    char getfile[100];
+    char t_getfile[100];
+    int year, eid, found=0, answer;
 
-void admin_release_pay_order(){
+    getcod(5,6);
+    printf("Enter Year: ");
+    scanf("%i", &year);
+
+    getcod(5,7);
+    printf("Enter Month: ");
+    scanf("%s", &month);
+
+    getcod(5,8);
+    printf("Enter Employee Id: ");
+    scanf("%i", &eid);
+
+    sprintf(getfile, "data/salary/salary_%s_%i.txt", month, year);
+    sprintf(t_getfile, "data/salary/t_salary_%s_%i.txt", month, year);
+
+    FILE * salary_file = fopen(getfile, "rb");
+    FILE * t_salary_file = fopen(t_getfile, "aw+");
+
+    while(fscanf(salary_file, "%i %s %s %i %s %i %s\n\n", &rs.id, rs.first_name, rs.last_name, &rs.salary, rs.month, &rs.year, rs.status)!=EOF)
+    {
+        if(eid!=rs.id)
+        {
+            fprintf(t_salary_file, "%i %s %s %i %s %i %s\n\n", rs.id, rs.first_name, rs.last_name, rs.salary, rs.month, rs.year, rs.status);
+        }
+        else
+        {
+            found = 1;
+        }
+        if(eid==rs.id)
+        {
+            getcod(5, 12);
+            printf("ID: %i", rs.id);
+            getcod(5,13);
+            printf("First Name: %s", rs.first_name);
+            getcod(5,14);
+            printf("Salary: %i", rs.salary);
+            getcod(5,15);
+            printf("Status: %s", rs.status);
+            getcod(5,17);
+            printf("1. Paid \n");
+            getcod(5,18);
+            printf("2. Unpaid \n");
+            scanf("%i", &answer);
+
+            if(answer==1)
+            {
+                char new_status[50] = "Paid";
+                fprintf(t_salary_file, "%i %s %s %i %s %i %s\n\n", rs.id, rs.first_name, rs.last_name, rs.salary, rs.month, rs.year, new_status);
+            }
+            else
+            {
+                char new_status[50] = "Unpaid";
+                fprintf(t_salary_file, "%i %s %s %i %s %i %s\n\n", rs.id, rs.first_name, rs.last_name, rs.salary, rs.month, rs.year, new_status);
+            }
+
+        }
+    }
+    if(!found)
+    {
+        printf("Record Not Found \n");
+    }
+    else
+    {
+        printf("Record Updated \n");
+    }
+    fclose(salary_file);
+    fclose(t_salary_file);
+    remove(getfile);
+    rename(t_getfile, getfile);
+    printf("Press any key to go Back \n");
+    getch();
+    admin_fi_payroll();
+
+}
+
+void admin_release_salary_month()
+{
+    system("cls");
+    bannerdesign("Release Salary Month");
+    char month[100], getfile[100], t_getfile[100], paid[100] = "Paid";
+    int year;
+
+    getcod(5,6);
+    printf("Enter Year: ");
+    scanf("%i", &year);
+
+    getcod(5,7);
+    printf("Enter Month: ");
+    scanf("%s", &month);
+
+    sprintf(getfile, "data/salary/salary_%s_%i.txt", month, year);
+    sprintf(t_getfile, "data/salary/t_salary_%s_%i.txt", month, year);
+
+
+    FILE * salary = fopen(getfile, "rb");
+    FILE * t_salary = fopen(t_getfile, "aw+");
+
+    while(fscanf(salary, "%i %s %s %i %s %i %s\n\n", &rs.id, rs.first_name, rs.last_name, &rs.salary, rs.month, &rs.year, rs.status)!=EOF)
+    {
+        fprintf(t_salary,"%i %s %s %i %s %i %s\n\n", rs.id, rs.first_name, rs.last_name, rs.salary, rs.month, rs.year, paid);
+    }
+    fclose(salary);
+    fclose(t_salary);
+    remove(getfile);
+    rename(t_getfile, getfile);
+    printf("Press any key to go Back \n");
+    getch();
+    admin_fi_payroll();
+
+}
+
+void admin_release_pay_order()
+{
     system("cls");
     bannerdesign("Release Pay Order");
     FILE *mainfile = fopen("data/payorder.txt", "rb+");
@@ -456,13 +630,18 @@ void admin_release_pay_order(){
     printf("Enter Pay Order Id: ");
     scanf("%i", &id);
 
-    while(fscanf(mainfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF){
-         if(id!=po.id){
+    while(fscanf(mainfile, "%i %s %s %i %s %i %s\n\n", &po.id, po.date, po.payto, &po.amount, po.type, &po.employee_id, po.status)!=EOF)
+    {
+        if(id!=po.id)
+        {
             fprintf(tempfile, "%i %s %s %i %s %i %s\n\n", po.id, po.date, po.payto, po.amount, po.type, po.employee_id, po.status);
-        }else{
+        }
+        else
+        {
             found = 1;
         }
-        if(id==po.id){
+        if(id==po.id)
+        {
             getcod(5,7);
             printf("Id: %i", po.id);
             getcod(5,8);
@@ -483,10 +662,13 @@ void admin_release_pay_order(){
             printf("2. Reject\n");
             scanf("%i", &answer);
 
-            if(answer==1){
+            if(answer==1)
+            {
                 char new_status[50] = "Approved";
                 fprintf(tempfile, "%i %s %s %i %s %i %s\n\n", po.id, po.date, po.payto, po.amount, po.type, po.employee_id, new_status);
-            }else{
+            }
+            else
+            {
                 char new_status[50] = "Rejected";
                 fprintf(tempfile, "%i %s %s %i %s %i %s\n\n", po.id, po.date, po.payto, po.amount, po.type, po.employee_id, new_status);
             }
@@ -494,9 +676,12 @@ void admin_release_pay_order(){
 
     }
 
-    if(!found){
+    if(!found)
+    {
         printf("Record Not Found \n");
-    }else{
+    }
+    else
+    {
         printf("Record Updated \n");
     }
 

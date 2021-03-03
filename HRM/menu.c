@@ -451,8 +451,13 @@ void admin_fi_salary_administration(){
     getcod(20,6);
     printf("2. View Salary Sheet");
 
+    getc(20,7);
+    printf("3. Salary by individual");
+    getcod(20,8);
+    printf("4. Salary by Month");
+
     getcod(20,7);
-    printf("3. << Go Back");
+    printf("5. << Go Back");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -466,6 +471,12 @@ void admin_fi_salary_administration(){
         admin_fi_view_salary();
         break;
     case 3:
+        admin_release_salary_single();
+        break;
+    case 4:
+        admin_release_salary_month();
+        break;
+    case 5:
         admin_financial_menu();
         break;
     default:
