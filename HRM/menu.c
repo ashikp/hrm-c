@@ -16,28 +16,25 @@ void Administrator_Menu(){
     printf("1. Employee Menu"); // employee_management.c
 
     getcod(20,6);
-    printf("2. Facility Menu");
+    printf("2. Financial Menu"); // financial_management.c
 
     getcod(20,7);
-    printf("3. Financial Menu"); // financial_management.c
+    printf("3. Time Menu"); // time_management.c
 
     getcod(20,8);
-    printf("4. Time Menu"); // time_management.c
+    printf("4. User Menu"); //user_management.c
 
     getcod(20,9);
-    printf("5. User Menu"); //user_management.c
+    printf("5. Project Menu"); //project_management.c
 
     getcod(20,10);
-    printf("6. Project Menu"); //project_management.c
+    printf("6. Reports");
 
     getcod(20,11);
-    printf("7. Reports");
+    printf("7. Software Manual"); // help.c
 
     getcod(20,12);
-    printf("8. Software Manual"); // help.c
-
-    getcod(20,13);
-    printf("9. Exit");
+    printf("8. Exit");
 
 
 
@@ -51,27 +48,24 @@ void Administrator_Menu(){
                 admin_employee_menu();
                 break;
             case 2:
-                admin_facility_menu();
-                break;
-            case 3:
                 admin_financial_menu();
                 break;
-            case 4:
+            case 3:
                 admin_time_menu();
                 break;
-            case 5:
+            case 4:
                 admin_user_menu();
                 break;
-            case 6:
+            case 5:
                 admin_project_menu();
                 break;
-            case 7:
+            case 6:
                 admin_reports();
                 break;
-            case 8:
+            case 7:
                 admin_help();
                 break;
-            case 9:
+            case 8:
                 printf("Logging Out");
                 exit(0);
                 break;
@@ -294,51 +288,6 @@ void admin_user_menu(){
 }
 /** User Management **/
 
-
-
-
-void admin_facility_menu(){
-    system("cls");
-bannerdesign("Facility Menu");
-    int select;
-
-    getcod(20,5);
-    printf("1. Facility Administration");
-
-    getcod(20,6);
-    printf("2.Insurance");
-
-    getcod(20,7);
-    printf("3. Over Time");
-
-    getcod(20,8);
-    printf("4. << Go Back");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-        switch(select){
-        case 1:
-            admin_f_facility_administration();
-            break;
-        case 2:
-            admin_f_insurance();
-            break;
-        case 3:
-            admin_f_over_time();
-            break;
-        case 4:
-            Administrator_Menu();
-            break;
-        default:
-            printf("Wrong Input \n");
-            printf("Press any key to Try Again \n");
-            getch();
-            admin_user_menu();
-        }
-
-}
 /** Financial Menu**/
 void admin_financial_menu(){
     system("cls");
@@ -705,7 +654,10 @@ bannerdesign("Projects");
     printf("2. Update Project Status");
 
     getcod(20,6);
-    printf("3. << Go Back");
+    printf("3. View Project");
+
+    getcod(20,7);
+    printf("4. << Go Back");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -719,6 +671,9 @@ bannerdesign("Projects");
             admin_project_update_status();
             break;
         case 3:
+            admin_view_project_status();
+            break;
+        case 4:
             admin_project_menu();
             break;
         default:

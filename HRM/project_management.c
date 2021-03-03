@@ -241,10 +241,60 @@ scanf("%i", &pid);
 
 }
 
-
 void admin_view_project(){
 system("cls");
-bannerdesign("View Projects");
+bannerdesign("View Projects Status");
+
+FILE *project_check = fopen("data/project/project.txt","rb");
+int i, post=8;
+
+   getcod(5,6);
+    printf("ID");
+    getcod(9,6);
+    printf("P ID");
+    getcod(16,6);
+    printf("Project Name");
+    getcod(30,6);
+    printf("C ID");
+    getcod(40,6);
+    printf("E ID");
+    getcod(46,6);
+    printf("Project End");
+
+    getcod(0,7);
+    for(i=0; i<96; i++){
+        printf("-");
+    }
+    while(fscanf(project_check,"%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF){
+    getcod(5,post);
+    printf("%i", p.main_id);
+    getcod(9,post);
+    printf("%i", p.project_id);
+    getcod(16,post);
+    printf("%s", p.projectname);
+    getcod(30,post);
+    printf("%i", p.customer_id);
+    getcod(40,post);
+    printf("%i", p.employee_assign_id);
+    getcod(46,post);
+    printf("%s", p.project_end);
+    post++;
+}
+printf("\n");
+    for(i=0; i<96; i++){
+        printf("-");
+    }
+fclose(project_check);
+printf("Press any key to go Back \n");
+getch();
+admin_project_menu();
+
+}
+
+
+void admin_view_project_status(){
+system("cls");
+bannerdesign("View Projects Status");
 
 FILE *status_check = fopen("data/project/status.txt","rb");
 int i, post=8;
@@ -268,6 +318,7 @@ int i, post=8;
     for(i=0; i<96; i++){
         printf("-");
     }
+
 
 
 
@@ -336,7 +387,6 @@ while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id
         getcod(5,13);
         printf("Enter the Status Update(1-100):");
         scanf("%i", &d_status);
-
         fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
         update = 1;
     }
