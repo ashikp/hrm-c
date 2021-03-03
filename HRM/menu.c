@@ -93,7 +93,7 @@ void Employee_Menu()
     getcod(20,7);
     printf("3. Exit");
     getcod(20, 11);
-    printf("Select Option: ")
+    printf("Select Option: ");
     scanf("%i", &select);
 
 
@@ -130,7 +130,7 @@ void Client_Menu()
     getcod(20,6);
     printf("2. Exit");
     getcod(20,8);
-    printf("Select Options: ")
+    printf("Select Options: ");
     scanf("%i", &select);
 
     switch(select){
