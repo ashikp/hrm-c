@@ -6,28 +6,32 @@
 #include<windows.h>
 #include<time.h>
 
-struct user_entry{
+struct user_entry
+{
     int id;
     char username[50];
     char password[50];
     char first_name[50];
     char last_name[50];
     char role[5];
-}aue;
+} aue;
 
-void add_user(){
+void add_user()
+{
     char answer[2];
     system("cls");
     bannerdesign("Add User");
-    int vaild = 0 , i;
+    int vaild = 0, i;
     int callbackid;
 
     FILE *add_user_file;
     add_user_file = fopen("data/users.txt", "aw");
     FILE *readfile = fopen("data/users.txt", "rb");
 
-    while(fscanf(readfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
-        if(aue.id==""){
+    while(fscanf(readfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF)
+    {
+        if(aue.id=="")
+        {
             callbackid = 0;
         }
         callbackid = aue.id;
@@ -36,83 +40,103 @@ void add_user(){
     getcod(20,6);
     callbackid++;
 
-    do{
-    getcod(20,7);
-    printf("Enter Username:   ");
-    fflush(stdin);
-    scanf("%s", aue.username);
-    break;
+    do
+    {
+        getcod(20,7);
+        printf("Enter Username:   ");
+        fflush(stdin);
+        scanf("%s", aue.username);
+        break;
     }
     while(!vaild);
 
 
-        do{
-    getcod(20,8);
-    printf("Enter Password:   ");
-    fflush(stdin);
-    scanf("%s", aue.password);
-    break;
+    do
+    {
+        getcod(20,8);
+        printf("Enter Password:   ");
+        fflush(stdin);
+        scanf("%s", aue.password);
+        break;
     }
     while(!vaild);
 
 
-    do{
-    getcod(20,9);
-    printf("Enter First Name:   ");
-    fflush(stdin);
-    gets(aue.first_name);
-    for(i=0; i<strlen(aue.first_name); ++i){
-        if(isalpha(aue.first_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(20,9);
+        printf("Enter First Name:   ");
+        fflush(stdin);
+        gets(aue.first_name);
+        for(i=0; i<strlen(aue.first_name); ++i)
+        {
+            if(isalpha(aue.first_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
+        }
+        if(!vaild)
+        {
+            getcod(50,9);
+            printf("First Name Can't have Number on it. \n");
         }
     }
-    if(!vaild){
-        getcod(50,9);
-        printf("First Name Can't have Number on it. \n");
-    }
-    }
     while(!vaild);
 
-        do{
-    getcod(20,10);
-    printf("Enter Last Name:   ");
-    fflush(stdin);
-    gets(aue.last_name);
-    for(i=0; i<strlen(aue.last_name); ++i){
-        if(isalpha(aue.last_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(20,10);
+        printf("Enter Last Name:   ");
+        fflush(stdin);
+        gets(aue.last_name);
+        for(i=0; i<strlen(aue.last_name); ++i)
+        {
+            if(isalpha(aue.last_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
+        if(!vaild)
+        {
             getcod(50,10);
-        printf("Last Name Can't have Number on it. \n");
-    }
+            printf("Last Name Can't have Number on it. \n");
+        }
     }
     while(!vaild);
 
-        do{
-    getcod(20,11);
-    printf("Enter ROLE (A|E|C):   ");
-    fflush(stdin);
-    gets(aue.role);
-    for(i=0; i<strlen(aue.role); ++i){
-        if(isalpha(aue.role[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(20,11);
+        printf("Enter ROLE (A|E|C):   ");
+        fflush(stdin);
+        gets(aue.role);
+        for(i=0; i<strlen(aue.role); ++i)
+        {
+            if(isalpha(aue.role[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
+        if(!vaild)
+        {
             getcod(50,11);
-        printf("Role Can't have Number on it. \n");
-    }
+            printf("Role Can't have Number on it. \n");
+        }
     }
     while(!vaild);
 
@@ -125,7 +149,8 @@ void add_user(){
     admin_user_menu();
 
 }
-void delete_user(){
+void delete_user()
+{
     system("cls");
     bannerdesign("Delete User");
     FILE *mainfile = fopen("data/users.txt", "rb+");
@@ -136,16 +161,23 @@ void delete_user(){
     printf("Enter Id: ");
     scanf("%i", &id);
 
-    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
-        if(id!=aue.id){
+    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF)
+    {
+        if(id!=aue.id)
+        {
             fprintf(tempfile, "%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
-        }else{
+        }
+        else
+        {
             found = 1;
         }
     }
-    if(!found){
+    if(!found)
+    {
         printf("Record Not Found \n");
-    }else{
+    }
+    else
+    {
         printf("Record Updated \n");
     }
     fclose(mainfile);
@@ -157,7 +189,8 @@ void delete_user(){
     admin_user_menu();
 
 }
-void view_user(){
+void view_user()
+{
     system("cls");
     bannerdesign("View Users");
     FILE *mainfile = fopen("data/users.txt", "r");
@@ -175,10 +208,12 @@ void view_user(){
     getcod(58,6);
     printf("Role Name");
     getcod(0,7);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
-    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
+    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF)
+    {
         getcod(5,post);
         printf("%i", aue.id);
         getcod(12,post);
@@ -192,7 +227,8 @@ void view_user(){
         post++;
     }
     printf("\n");
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     printf("\n");
@@ -201,7 +237,8 @@ void view_user(){
     getch();
     admin_user_menu();
 }
-void update_user(){
+void update_user()
+{
     system("cls");
     bannerdesign("Update User Details");
     FILE *mainfile = fopen("data/users.txt", "rb+");
@@ -211,13 +248,18 @@ void update_user(){
     getcod(20,6);
     printf("Enter the User ID: ");
     scanf("%i", &id);
-    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF){
-        if(id!=aue.id){
+    while(fscanf(mainfile, "%i %s %s %s %s %s\n\n", &aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role)!=EOF)
+    {
+        if(id!=aue.id)
+        {
             fprintf(tempfile, "%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
-        }else{
+        }
+        else
+        {
             mount = 1;
         }
-        if(id==aue.id){
+        if(id==aue.id)
+        {
             found=1;
             getcod(20,7);
             printf("Id: %i\n", aue.id);
@@ -234,98 +276,122 @@ void update_user(){
             getcod(20,14);
             printf("Updating Information");
 
-            do{
+            do
+            {
                 getcod(20,15);
                 printf("Enter Username:   ");
                 fflush(stdin);
                 gets(aue.username);
-                    break;
-                }
-                while(!vaild);
+                break;
+            }
+            while(!vaild);
 
 
-                    do{
+            do
+            {
                 getcod(20,16);
                 printf("Enter Password:   ");
                 fflush(stdin);
                 gets(aue.password);
                 break;
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
 
-                do{
+            do
+            {
                 getcod(20,17);
                 printf("Enter First Name:   ");
                 fflush(stdin);
                 gets(aue.first_name);
-                for(i=0; i<strlen(aue.first_name); ++i){
-                    if(isalpha(aue.first_name[i])){
+                for(i=0; i<strlen(aue.first_name); ++i)
+                {
+                    if(isalpha(aue.first_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n First Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                    do{
+            do
+            {
                 getcod(20,18);
                 printf("Enter Last Name:   ");
                 fflush(stdin);
                 gets(aue.last_name);
-                for(i=0; i<strlen(aue.last_name); ++i){
-                    if(isalpha(aue.last_name[i])){
+                for(i=0; i<strlen(aue.last_name); ++i)
+                {
+                    if(isalpha(aue.last_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Last Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                    do{
+            do
+            {
                 getcod(20,19);
                 printf("Enter ROLE (A|E|C):   ");
                 fflush(stdin);
                 gets(aue.role);
-                for(i=0; i<strlen(aue.role); ++i){
-                    if(isalpha(aue.role[i])){
+                for(i=0; i<strlen(aue.role); ++i)
+                {
+                    if(isalpha(aue.role[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Role Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
-    printf("\nPress 'U' to update and other key to cancel....! \n");
-    char answer;
-    answer = getche();
-    if(answer=='U' || answer=='u'){
-        fprintf(tempfile,"%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
-        fclose(tempfile);
-        printf("\nUser Updated\n");
-    }else{
-        fprintf(tempfile,"%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
-        fclose(tempfile);
-        printf("Update Failed");
-    }
+            }
+            while(!vaild);
+            printf("\nPress 'U' to update and other key to cancel....! \n");
+            char answer;
+            answer = getche();
+            if(answer=='U' || answer=='u')
+            {
+                fprintf(tempfile,"%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
+                fclose(tempfile);
+                printf("\nUser Updated\n");
+            }
+            else
+            {
+                fprintf(tempfile,"%i %s %s %s %s %s\n\n", aue.id, aue.username, aue.password, aue.first_name, aue.last_name, aue.role);
+                fclose(tempfile);
+                printf("Update Failed");
+            }
 
         }
     }
-    if(!found)printf("\n\tNo record found!");
+    if(!found)
+        printf("\n\tNo record found!");
     fclose(mainfile);
     fclose(tempfile);
     remove("data//users.txt");

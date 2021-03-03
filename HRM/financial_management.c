@@ -23,6 +23,8 @@ struct employee_data
     char department[50];
     int salary;
     char dob[50];
+    char life_in[100];
+    char reward[100];
 } ed;
 
 struct view_salary
@@ -65,7 +67,7 @@ void admin_fi_gen_salary_sheet()
     getcod(20,6);
     printf("Generating Salary Sheet of %s Year: %i", getlocalmonth(), getlocalyear());
 
-    while(fscanf(efile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF)
+    while(fscanf(efile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob, ed.life_in, ed.reward)!=EOF)
     {
         fprintf(sfile, "%i %s %s %i %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.salary, getlocalmonth(),getlocalyear(), status);
         found = 1;

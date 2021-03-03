@@ -6,10 +6,11 @@
 #include<windows.h>
 #include<time.h>
 // declare the getcod function
-struct Time{
-  int seconds;
-  int minutes;
-  int hours;
+struct Time
+{
+    int seconds;
+    int minutes;
+    int hours;
 };
 
 void getcod(short x, short y)
@@ -18,13 +19,15 @@ void getcod(short x, short y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-int getlocalyear(){
+int getlocalyear()
+{
     SYSTEMTIME T;
     GetLocalTime(&T);
     return T.wYear;
 }
 
-int getlocalmonth(){
+int getlocalmonth()
+{
     char *month[12] = {"","Jan","Feb","Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     SYSTEMTIME T;
     GetLocalTime(&T);
@@ -32,16 +35,19 @@ int getlocalmonth(){
 }
 
 
-char getlocalctime(){
+char getlocalctime()
+{
     time_t c_time;
     char* c_t_s;
 
     c_time = time(NULL);
-    if(c_time == ((time_t)-1)){
+    if(c_time == ((time_t)-1))
+    {
         return "Failed to Get Time";
     }
     c_t_s = ctime(&c_time);
-    if(c_t_s == NULL){
+    if(c_t_s == NULL)
+    {
         return "Failed to Obtain time";
     }
     return c_t_s;
@@ -51,13 +57,15 @@ char getlocalctime(){
 
 void timecount(struct Time start, struct Time stop, struct Time *diff)
 {
-    if(stop.seconds > start.seconds){
+    if(stop.seconds > start.seconds)
+    {
         --start.minutes;
         start.seconds += 60;
     }
 
     diff->seconds = start.seconds - stop.seconds;
-    if(stop.minutes > start.minutes){
+    if(stop.minutes > start.minutes)
+    {
         --start.hours;
         start.minutes += 60;
     }

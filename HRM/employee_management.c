@@ -5,7 +5,8 @@
 #include<stdlib.h>
 #include<windows.h>
 #include<time.h>
-struct employee_data{
+struct employee_data
+{
     int id;
     char first_name[50];
     char last_name[50];
@@ -22,14 +23,17 @@ struct employee_data{
     int salary;
     char dob[50];
     char role[2];
-}ed, pd;
+    char life_in[100];
+    char reward[100];
+} ed, pd;
 
-void admin_add_employee(){
+void admin_add_employee()
+{
     char answer[2];
     system("cls");
     bannerdesign("Add Employee");
     char role[2] = "E";
-    int vaild = 0 , i,callbackid;
+    int vaild = 0, i,callbackid;
     FILE *add_employee_file;
     FILE *add_user_file;
     FILE *read_file;
@@ -37,121 +41,150 @@ void admin_add_employee(){
     add_user_file = fopen("data/users.txt", "a");
     read_file = fopen("data/users.txt", "r");
 
-    while(fscanf(read_file, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, ed.role)!=EOF){
+    while(fscanf(read_file, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, ed.role)!=EOF)
+    {
         callbackid = ed.id;
     }
     callbackid++;
-    do{
-    getcod(10,6);
-    printf("Enter First Name:   ");
-    fflush(stdin);
-    gets(ed.first_name);
-    for(i=0; i<strlen(ed.first_name); ++i){
-        if(isalpha(ed.first_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(10,6);
+        printf("Enter First Name:   ");
+        fflush(stdin);
+        gets(ed.first_name);
+        for(i=0; i<strlen(ed.first_name); ++i)
+        {
+            if(isalpha(ed.first_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
-        getcod(50,6);
-        printf("First Name Can't have Number on it.");
-    }
+        if(!vaild)
+        {
+            getcod(50,6);
+            printf("First Name Can't have Number on it.");
+        }
     }
     while(!vaild);
-    do{
-    getcod(10,7);
-    printf("Enter Last Name:   ");
-    fflush(stdin);
-    gets(ed.last_name);
-    for(i=0; i<strlen(ed.last_name); ++i){
-        if(isalpha(ed.last_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(10,7);
+        printf("Enter Last Name:   ");
+        fflush(stdin);
+        gets(ed.last_name);
+        for(i=0; i<strlen(ed.last_name); ++i)
+        {
+            if(isalpha(ed.last_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
-        getcod(50,7);
-        printf("Last Name Can't have Number on it.");
-    }
+        if(!vaild)
+        {
+            getcod(50,7);
+            printf("Last Name Can't have Number on it.");
+        }
     }
     while(!vaild);
 
 
-    do{
-    getcod(10,8);
-    printf("Enter UserName:   ");
-    fflush(stdin);
-    gets(ed.username);
+    do
+    {
+        getcod(10,8);
+        printf("Enter UserName:   ");
+        fflush(stdin);
+        gets(ed.username);
         break;
     }
     while(!vaild);
 
-    do{
-    getcod(10,9);
-    printf("Enter Password:   ");
-    fflush(stdin);
-    gets(ed.password);
-    break;
+    do
+    {
+        getcod(10,9);
+        printf("Enter Password:   ");
+        fflush(stdin);
+        gets(ed.password);
+        break;
     }
     while(!vaild);
 
-    do{
-    getcod(10,10);
-    printf("Enter Father's Name:   ");
-    fflush(stdin);
-    gets(ed.father_name);
-    for(i=0; i<strlen(ed.father_name); ++i){
-        if(isalpha(ed.father_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(10,10);
+        printf("Enter Father's Name:   ");
+        fflush(stdin);
+        gets(ed.father_name);
+        for(i=0; i<strlen(ed.father_name); ++i)
+        {
+            if(isalpha(ed.father_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
+        if(!vaild)
+        {
             getcod(50,10);
-        printf("Father's Name Can't have Number on it.");
-    }
-    }
-    while(!vaild);
-
-    do{
-    getcod(10,11);
-    printf("Enter Mother's Name:   ");
-    fflush(stdin);
-    gets(ed.mother_name);
-    for(i=0; i<strlen(ed.mother_name); ++i){
-        if(isalpha(ed.mother_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+            printf("Father's Name Can't have Number on it.");
         }
     }
-    if(!vaild){
+    while(!vaild);
+
+    do
+    {
+        getcod(10,11);
+        printf("Enter Mother's Name:   ");
+        fflush(stdin);
+        gets(ed.mother_name);
+        for(i=0; i<strlen(ed.mother_name); ++i)
+        {
+            if(isalpha(ed.mother_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
+        }
+        if(!vaild)
+        {
             getcod(50,11);
-        printf("Mother's Name Can't have Number on it.");
-    }
-    }
-    while(!vaild);
-
-    do{
-    getcod(10,12);
-    printf("Enter Mailing Address:   ");
-    fflush(stdin);
-    gets(ed.mailing_address);
+            printf("Mother's Name Can't have Number on it.");
+        }
     }
     while(!vaild);
 
-    do{
-    getcod(10,13);
-    printf("Enter Permanent Address:   ");
-    fflush(stdin);
-    gets(ed.permanent_address);
+    do
+    {
+        getcod(10,12);
+        printf("Enter Mailing Address:   ");
+        fflush(stdin);
+        gets(ed.mailing_address);
+    }
+    while(!vaild);
+
+    do
+    {
+        getcod(10,13);
+        printf("Enter Permanent Address:   ");
+        fflush(stdin);
+        gets(ed.permanent_address);
     }
     while(!vaild);
 
@@ -160,52 +193,65 @@ void admin_add_employee(){
     scanf("%i", &ed.nid_number);
 
 
-    do{
-    getcod(10,15);
-    printf("Enter Previous Job Company Name:   ");
-    fflush(stdin);
-    gets(ed.pjob_company_name);
-    for(i=0; i<strlen(ed.pjob_company_name); ++i){
-        if(isalpha(ed.pjob_company_name[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+    do
+    {
+        getcod(10,15);
+        printf("Enter Previous Job Company Name:   ");
+        fflush(stdin);
+        gets(ed.pjob_company_name);
+        for(i=0; i<strlen(ed.pjob_company_name); ++i)
+        {
+            if(isalpha(ed.pjob_company_name[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
         }
-    }
-    if(!vaild){
+        if(!vaild)
+        {
             getcod(50,15);
-        printf("Previous Job Company Name Can't have Number on it.");
-    }
-    }
-    while(!vaild);
-
-    do{
-    getcod(10,16);
-    printf("Enter Joining Date(01-01-2021):   ");
-    fflush(stdin);
-    gets(ed.join_date);
-    break;
-    }
-    while(!vaild);
-
-        do{
-    getcod(10,17);
-    printf("Enter Department:   ");
-    fflush(stdin);
-    gets(ed.department);
-    for(i=0; i<strlen(ed.department); ++i){
-        if(isalpha(ed.department[i])){
-            vaild = 1;
-        }else{
-            vaild = 0;
-            break;
+            printf("Previous Job Company Name Can't have Number on it.");
         }
     }
-    if(!vaild){
-            getcod(50,17);
-        printf("Department Can't have Number on it.");
+    while(!vaild);
+
+    do
+    {
+        getcod(10,16);
+        printf("Enter Joining Date(01-01-2021):   ");
+        fflush(stdin);
+        gets(ed.join_date);
+        break;
     }
+    while(!vaild);
+
+    do
+    {
+        getcod(10,17);
+        printf("Enter Department:   ");
+        fflush(stdin);
+        gets(ed.department);
+        for(i=0; i<strlen(ed.department); ++i)
+        {
+            if(isalpha(ed.department[i]))
+            {
+                vaild = 1;
+            }
+            else
+            {
+                vaild = 0;
+                break;
+            }
+        }
+        if(!vaild)
+        {
+            getcod(50,17);
+            printf("Department Can't have Number on it.");
+        }
     }
     while(!vaild);
 
@@ -213,16 +259,36 @@ void admin_add_employee(){
     printf("Enter Salary:   ");
     scanf("%i", &ed.salary);
 
-    do{
-    getcod(10,19);
-    printf("Enter Date of Birth(01-01-1999):   ");
-    fflush(stdin);
-    gets(ed.dob);
-    break;
+    do
+    {
+        getcod(10,19);
+        printf("Enter Date of Birth(01-01-1999):   ");
+        fflush(stdin);
+        gets(ed.dob);
+        break;
     }
     while(!vaild);
 
-    fprintf(add_employee_file,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", callbackid, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
+    do{
+        getcod(10,20);
+        printf("Life Insurance (Yes or No): ");
+        fflush(stdin);
+        gets(ed.life_in);
+        break;
+    }
+    while(!vaild);
+
+    do{
+        getcod(10,21);
+        printf("Rewards (Yes or No): ");
+        fflush(stdin);
+        gets(ed.reward);
+        break;
+    }
+    while(!vaild);
+
+
+    fprintf(add_employee_file,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", callbackid, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob, ed.life_in, ed.reward);
     fprintf(add_user_file,"%i %s %s %s %s %s\n\n", callbackid, ed.username, ed.password, ed.first_name, ed.last_name, role);
     fclose(add_employee_file);
     fclose(add_user_file);
@@ -232,8 +298,9 @@ void admin_add_employee(){
     printf("Press any key to go Back \n");
     admin_employee_menu();
 }
-admin_delete_employee(){
- system("cls");
+admin_delete_employee()
+{
+    system("cls");
     bannerdesign("Delete Employee");
     FILE *mainfile = fopen("data/employee.txt", "rb+");
     FILE *tempfile = fopen("data/e_temp.txt", "wa+");
@@ -245,18 +312,25 @@ admin_delete_employee(){
     printf("Enter Id: ");
     scanf("%i", &id);
 
-    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
-        if(id!=ed.id){
-            fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
-        }else{
+    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob, ed.life_in, ed.reward)!=EOF)
+    {
+        if(id!=ed.id)
+        {
+            fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob, ed.life_in, ed.reward);
+        }
+        else
+        {
             found = 1;
         }
     }
 
 
-    if(!found){
+    if(!found)
+    {
         printf("Record Not Found \n");
-    }else{
+    }
+    else
+    {
         printf("Record Updated \n");
     }
     fclose(mainfile);
@@ -268,7 +342,8 @@ admin_delete_employee(){
     getch();
     admin_employee_menu();
 }
-admin_view_employee(){
+admin_view_employee()
+{
     system("cls");
     bannerdesign("View Employee");
     FILE *mainfile = fopen("data/employee.txt", "r");
@@ -288,10 +363,12 @@ admin_view_employee(){
     getcod(75,6);
     printf("Salary");
     getcod(0,7);
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
-    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
+    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob, ed.life_in, ed.reward)!=EOF)
+    {
         getcod(1,post);
         printf("%i", ed.id);
         getcod(6,post);
@@ -307,7 +384,8 @@ admin_view_employee(){
         post++;
     }
     printf("\n");
-    for(i=0; i<95; i++){
+    for(i=0; i<95; i++)
+    {
         printf("-");
     }
     printf("\n");
@@ -317,7 +395,8 @@ admin_view_employee(){
     admin_employee_menu();
 }
 
-void admin_edit_employee(){
+void admin_edit_employee()
+{
     system("cls");
     bannerdesign("Update Employee Details");
     FILE *mainfile = fopen("data/employee.txt", "rb+");
@@ -327,12 +406,15 @@ void admin_edit_employee(){
     getcod(20,6);
     printf("Enter the Employee ID: ");
     scanf("%i", &id);
-    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob)!=EOF){
-        if(id!=ed.id){
-            fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
+    while(fscanf(mainfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", &ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, &ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, &ed.salary, ed.dob, ed.life_in, ed.reward)!=EOF)
+    {
+        if(id!=ed.id)
+        {
+            fprintf(tempfile, "%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob, ed.life_in, ed.reward);
         }
 
-        if(ed.id==id){
+        if(ed.id==id)
+        {
             found=1;
             getcod(20,7);
             printf("Id: %i", ed.id);
@@ -362,210 +444,281 @@ void admin_edit_employee(){
             printf("Salary: %i", ed.salary);
             getcod(20,20);
             printf("Date of Birth: %s", ed.dob);
-
+            getcod(20,21);
+            printf("Life Insurance: %s", ed.life_in);
             getcod(20,22);
+            printf("Rewards: %s", ed.reward);
+
+            getcod(20,23);
             printf("Update Information");
-            do{
-                getcod(20,23);
+            do
+            {
+                getcod(20,24);
                 printf("Enter First Name:   ");
                 fflush(stdin);
                 gets(ed.first_name);
-                for(i=0; i<strlen(ed.first_name); ++i){
-                    if(isalpha(ed.first_name[i])){
+                for(i=0; i<strlen(ed.first_name); ++i)
+                {
+                    if(isalpha(ed.first_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,24);
+            do
+            {
+                getcod(20,25);
                 printf("Enter Last Name:   ");
                 fflush(stdin);
                 gets(ed.last_name);
-                for(i=0; i<strlen(ed.last_name); ++i){
-                    if(isalpha(ed.last_name[i])){
+                for(i=0; i<strlen(ed.last_name); ++i)
+                {
+                    if(isalpha(ed.last_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
 
-                do{
-                getcod(20,25);
+            do
+            {
+                getcod(20,26);
                 printf("Enter UserName:   ");
                 fflush(stdin);
                 gets(ed.username);
-                for(i=0; i<strlen(ed.username); ++i){
-                    if(isalpha(ed.username[i])){
+                for(i=0; i<strlen(ed.username); ++i)
+                {
+                    if(isalpha(ed.username[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n UserName Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,26);
+            do
+            {
+                getcod(20,27);
                 printf("Enter Password:   ");
                 fflush(stdin);
                 gets(ed.password);
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,27);
+            do
+            {
+                getcod(20,28);
                 printf("Enter Father's Name:   ");
                 fflush(stdin);
                 gets(ed.father_name);
-                for(i=0; i<strlen(ed.father_name); ++i){
-                    if(isalpha(ed.father_name[i])){
+                for(i=0; i<strlen(ed.father_name); ++i)
+                {
+                    if(isalpha(ed.father_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Father's Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,28);
+            do
+            {
+                getcod(20,29);
                 printf("Enter Mother's Name:   ");
                 fflush(stdin);
                 gets(ed.mother_name);
-                for(i=0; i<strlen(ed.mother_name); ++i){
-                    if(isalpha(ed.mother_name[i])){
+                for(i=0; i<strlen(ed.mother_name); ++i)
+                {
+                    if(isalpha(ed.mother_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Mother's Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,29);
+            do
+            {
+                getcod(20,30);
                 printf("Enter Mailing Address:   ");
                 fflush(stdin);
                 gets(ed.mailing_address);
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,30);
+            do
+            {
+                getcod(20,31);
                 printf("Enter Permanent Address:   ");
                 fflush(stdin);
                 gets(ed.permanent_address);
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                getcod(20,31);
-                printf("Enter NID Number:   ");
-                scanf("%i", &ed.nid_number);
+            getcod(20,32);
+            printf("Enter NID Number:   ");
+            scanf("%i", &ed.nid_number);
 
 
-                do{
-                getcod(20,32);
+            do
+            {
+                getcod(20,33);
                 printf("Enter Previous Job Company Name:   ");
                 fflush(stdin);
                 gets(ed.pjob_company_name);
-                for(i=0; i<strlen(ed.pjob_company_name); ++i){
-                    if(isalpha(ed.pjob_company_name[i])){
+                for(i=0; i<strlen(ed.pjob_company_name); ++i)
+                {
+                    if(isalpha(ed.pjob_company_name[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Previous Job Company Name Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                do{
-                getcod(20,33);
+            do
+            {
+                getcod(20,34);
                 printf("Enter Joining Date(01-01-2021):   ");
                 fflush(stdin);
                 gets(ed.join_date);
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                    do{
-                getcod(20,34);
+            do
+            {
+                getcod(20,35);
                 printf("Enter Department:   ");
                 fflush(stdin);
                 gets(ed.department);
-                for(i=0; i<strlen(ed.department); ++i){
-                    if(isalpha(ed.department[i])){
+                for(i=0; i<strlen(ed.department); ++i)
+                {
+                    if(isalpha(ed.department[i]))
+                    {
                         vaild = 1;
-                    }else{
+                    }
+                    else
+                    {
                         vaild = 0;
                         break;
                     }
                 }
-                if(!vaild){
+                if(!vaild)
+                {
                     printf("\n Department Can't have Number on it. \n");
                 }
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                getcod(20,35);
-                printf("Enter Salary(1000):   ");
-                scanf("%i", &ed.salary);
+            getcod(20,36);
+            printf("Enter Salary(1000):   ");
+            scanf("%i", &ed.salary);
 
-                do{
-                getcod(20,36);
+            do
+            {
+                getcod(20,37);
                 printf("Enter Date of Birth(01-01-1999):   ");
                 fflush(stdin);
                 gets(ed.dob);
-                }
-                while(!vaild);
+            }
+            while(!vaild);
 
-                printf("\nPress 'U' to update and other key to cancel....! \n");
-                char answer;
-                answer = getche();
-                if(answer=='U' || answer=='u'){
-                    fprintf(tempfile,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
-                    fclose(tempfile);
-                    fclose(mainfile);
-                    printf("\n Employee Updated");
-                }else{
-                fprintf(tempfile,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob);
-                    fclose(tempfile);
-                    fclose(mainfile);
-                    printf("Employee Update Failed\n");
-                }
+            do{
+                getcod(20,38);
+                printf("Life Insurance (Yes or No): ");
+                fflush(stdin);
+                gets(ed.life_in);
+            }
+            while(!vaild);
+
+            do{
+                getcod(20,39);
+                printf("Rewards (Yes or No): ");
+                fflush(stdin);
+                gets(ed.reward);
+            }
+            while(!vaild);
+
+            printf("\nPress 'U' to update and other key to cancel....! \n");
+            char answer;
+            answer = getche();
+            if(answer=='U' || answer=='u')
+            {
+                fprintf(tempfile,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob, ed.life_in, ed.reward);
+                fclose(tempfile);
+                fclose(mainfile);
+                printf("\n Employee Updated");
+            }
+            else
+            {
+                fprintf(tempfile,"%i %s %s %s %s %s %s %s %s %i %s %s %s %i %s %s %s\n\n", ed.id, ed.first_name, ed.last_name, ed.username, ed.password, ed.father_name, ed.mother_name, ed.mailing_address, ed.permanent_address, ed.nid_number, ed.pjob_company_name, ed.join_date, ed.department, ed.salary, ed.dob, ed.life_in, ed.reward);
+                fclose(tempfile);
+                fclose(mainfile);
+                printf("Employee Update Failed\n");
+            }
 
         }
     }
-    if(!found)printf("\n\tNo record found!");
+    if(!found)
+        printf("\n\tNo record found!");
     remove("data//employee.txt");
     rename("data//e_temp.txt", "data//employee.txt");
     printf("Press any key to go Back \n");
