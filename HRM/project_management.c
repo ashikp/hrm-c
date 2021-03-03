@@ -346,7 +346,7 @@ void employee_view_projects()
     bannerdesign("View Projects Status");
 
     FILE * employee_log = fopen("data/logs/employee_logs.txt", "rb");
-    FILE * status_check = fopen("data/project/status.txt","rb");
+    FILE * status_check = fopen("data/project/project.txt","rb");
     int i, post=8, uid, notfound=0;
     while(fscanf(employee_log,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF)
     {
@@ -378,7 +378,7 @@ void employee_view_projects()
 
 
 
-    while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
+    while(fscanf(status_check,"%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
     {
         if(uid==p.employee_assign_id){
             getcod(5,post);
