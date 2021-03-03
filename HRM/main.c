@@ -7,8 +7,7 @@ int main()
 {
     SMALL_RECT windowSize = {0 , 0 , 30 , 95}; //change the values
     SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &windowSize);
-    //welcome();
-    //login();
-    admin_add_employee();
+    welcome();
+    login();
 
 }

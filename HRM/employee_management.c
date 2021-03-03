@@ -22,7 +22,7 @@ struct employee_data{
     int salary;
     char dob[50];
     char role[2];
-}ed;
+}ed, pd;
 
 void admin_add_employee(){
     char answer[2];
@@ -41,7 +41,6 @@ void admin_add_employee(){
         callbackid = ed.id;
     }
     callbackid++;
-
     do{
     getcod(10,6);
     printf("Enter First Name:   ");
@@ -239,7 +238,6 @@ admin_delete_employee(){
     FILE *mainfile = fopen("data/employee.txt", "rb+");
     FILE *tempfile = fopen("data/e_temp.txt", "wa+");
     FILE *u_mainfile = fopen("data/users.txt", "rb+");
-    FILE *u_tempfile = fopen("data/u_temp.txt", "wa+");
     int id, found, u_found;
     char role[50];
 
@@ -254,15 +252,9 @@ admin_delete_employee(){
             found = 1;
         }
     }
-    while(fscanf(u_mainfile, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, role)!=EOF){
-        if(id!=ed.id){
-            fprintf(u_tempfile, "%i %s %s %s %s %s\n\n", &ed.id, ed.username, ed.password, ed.first_name, ed.last_name, role);
-        }else{
-            u_found = 1;
-        }
-    }
 
-    if(!found && !u_found){
+
+    if(!found){
         printf("Record Not Found \n");
     }else{
         printf("Record Updated \n");
@@ -270,11 +262,8 @@ admin_delete_employee(){
     fclose(mainfile);
     fclose(tempfile);
     fclose(u_mainfile);
-    fclose(u_tempfile);
     remove("data//employee.txt");
-    remove("data//users.txt");
     rename("data//e_temp.txt", "data//employee.txt");
-    rename("data//u_temp.txt", "data//users.txt");
     printf("Press any key to go Back \n");
     getch();
     admin_employee_menu();

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1614793175 source:e:\projectbubt\hrm\main.c
+1614796733 source:e:\projectbubt\hrm\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -32,7 +32,7 @@
 	<windows.h>
 	<time.h>
 
-1614662604 source:e:\projectbubt\hrm\menu.c
+1614796306 source:e:\projectbubt\hrm\menu.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -93,7 +93,7 @@
 
 1613069522 source:e:\projectbubt\hrm-c\hrm\menu.c
 
-1614660530 source:e:\projectbubt\hrm\employee_management.c
+1614796945 source:e:\projectbubt\hrm\employee_management.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -105,7 +105,7 @@
 1614059991 source:e:\projectbubt\hrm\help.c
 	<stdio.h>
 
-1614794389 source:e:\projectbubt\hrm\financial_management.c
+1614794459 source:e:\projectbubt\hrm\financial_management.c
 	<stdio.h>
 	<conio.h>
 	<string.h>

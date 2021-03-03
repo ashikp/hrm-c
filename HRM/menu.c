@@ -451,7 +451,7 @@ void admin_fi_salary_administration(){
     getcod(20,6);
     printf("2. View Salary Sheet");
 
-    getc(20,7);
+    getcod(20,7);
     printf("3. Salary by individual");
     getcod(20,8);
     printf("4. Salary by Month");
