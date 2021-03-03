@@ -397,34 +397,4 @@ void admin_view_single_employee_attendance()
     admin_t_attendance_management();
 }
 
-void employee_view_single_employee_attendance()
-{
-
-    system("cls");
-    bannerdesign("Single Employee Attendance");
-
-    char getfile[100];
-    int uid,count=0;
-    getcod(5,6);
-    printf("Enter Employee Id: ");
-    scanf("%i", &uid);
-
-    sprintf(getfile, "data/time/attendance/e_attendance_%i_%s_%i.txt", uid, getlocalmonth(), getlocalyear());
-
-    FILE *getatt = fopen(getfile, "rb+");
-
-    while(fscanf(getatt,"%i %s %i %i %i",&ad.date, ad.month, &ad.year, &ad.uid, &ad.a_d )!=EOF)
-    {
-        count+=ad.a_d;
-
-    }
-    fclose(getatt);
-    getcod(5,8);
-    printf("Employee Id: %i | Month: %s | Present for %i", uid, getlocalmonth(), count);
-
-    getcod(5,10);
-    printf("Press any key to Go Back");
-    getch();
-    employee_t_attendance_management();
-}
 

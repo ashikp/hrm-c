@@ -569,11 +569,8 @@ void employee_time_menu()
     getcod(20,6);
     printf("2. Time Tracking");
 
-    getcod(20,7);
-    printf("3. Attendance Management");
-
     getcod(20,8);
-    printf("4. << Go Back");
+    printf("3. << Go Back");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -588,9 +585,6 @@ void employee_time_menu()
         employee_time_track();
         break;
     case 3:
-        employee_t_attendance_management();
-        break;
-    case 4:
         Employee_Menu();
         break;
     default:
@@ -714,42 +708,6 @@ void admin_t_attendance_management()
 
 }
 
-void employee_t_attendance_management()
-{
-    system("cls");
-    bannerdesign("Attendance Management");
-    int select;
-
-    getcod(20,6);
-    printf("1. View Single Employee Attendance");
-
-    getcod(20,7);
-    printf("2. << Go Back ");
-
-    getcod(20,10);
-    printf("Select Menu:     ");
-    scanf("%i", &select);
-
-    switch(select)
-    {
-    case 1:
-        employee_view_single_employee_attendance();
-        break;
-    case 2:
-        employee_time_menu();
-        break;
-    default:
-        printf("Wrong Input \n");
-        printf("Press any key to Try Again \n");
-        getch();
-        employee_t_attendance_management();
-    }
-
-
-}
-
-
-
 /** Time Menu **/
 
 
@@ -822,7 +780,10 @@ void employee_project_menu()
     printf("3. View Project Status");
 
     getcod(20,7);
-    printf("4. Exit");
+    printf("4. View All Projects");
+
+    getcod(20,7);
+    printf("5. Exit");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -840,6 +801,9 @@ void employee_project_menu()
         admin_view_project_status();
         break;
     case 4:
+        employee_view_projects();
+        break;
+    case 5:
         printf("Logging Out");
         exit(0);
     default:
