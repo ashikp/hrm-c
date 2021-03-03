@@ -249,6 +249,51 @@ void admin_project_gen_status()
 }
 
 
+void employee_project_gen_status()
+{
+    system("cls");
+    bannerdesign("View Projects");
+
+    FILE * project = fopen("data/project/project.txt", "rb");
+    FILE * status_project = fopen("data/project/status.txt", "aw+");
+    int status = 0, done = 0, pid;
+
+
+    getcod(5,6);
+    printf("Enter Project Id: ");
+    scanf("%i", &pid);
+
+
+    while(fscanf(project, "%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
+    {
+        if(pid==p.project_id)
+        {
+            fprintf(status_project, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, status);
+            done = 1;
+        }
+    }
+    if(!done)
+    {
+        printf("Failed to Generate Status \n");
+    }
+    else
+    {
+        printf("Project Status Generate Done \n");
+    }
+    fclose(status_project);
+    fclose(project);
+
+    printf("Press any key to go Back \n");
+    getch();
+    employee_project_menu();
+
+}
+
+
+
+
+
+
 void admin_delete_project()
 {
     system("cls");
@@ -512,6 +557,81 @@ void admin_view_project_status()
     getch();
     admin_project_status();
 }
+void employee_view_project_status()
+{
+    system("cls");
+    bannerdesign("View Projects Status");
+
+    FILE *status_check = fopen("data/project/status.txt","rb");
+    int i, post=8;
+
+    getcod(5,6);
+    printf("ID");
+    getcod(9,6);
+    printf("P ID");
+    getcod(16,6);
+    printf("Project Name");
+    getcod(30,6);
+    printf("C ID");
+    getcod(40,6);
+    printf("E ID");
+    getcod(46,6);
+    printf("Project End");
+    getcod(65,6);
+    printf("Status");
+
+    getcod(0,7);
+    for(i=0; i<96; i++)
+    {
+        printf("-");
+    }
+
+
+
+
+    while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
+    {
+        getcod(5,post);
+        printf("%i", p.main_id);
+        getcod(9,post);
+        printf("%i", p.project_id);
+        getcod(16,post);
+        printf("%s", p.projectname);
+        getcod(30,post);
+        printf("%i", p.customer_id);
+        getcod(40,post);
+        printf("%i", p.employee_assign_id);
+        getcod(46,post);
+        printf("%s", p.project_end);
+        getcod(65,post);
+        if(p.status==100)
+        {
+            printf("Complete");
+        }
+        else if(p.status < 100 && p.status > 1)
+        {
+            printf("In Process");
+        }
+        else
+        {
+            printf("Pending to Start");
+        }
+        post++;
+    }
+    printf("\n");
+    for(i=0; i<96; i++)
+    {
+        printf("-");
+    }
+    fclose(status_check);
+    printf("\nPress any key to go Back \n");
+    getch();
+    employee_project_menu();
+}
+
+
+
+
 void client_view_project_status()
 {
     system("cls");
@@ -656,3 +776,69 @@ void admin_project_update_status()
     getch();
     admin_project_status();
 }
+
+
+
+
+
+void employee_project_update_status()
+{
+    system("cls");
+    bannerdesign("Edit Project");
+
+    int pid, found=0, d_status, update = 0;
+
+    getcod(5,6);
+    printf("Enter the Project Id: ");
+    scanf("%i", &pid);
+
+    FILE * status = fopen("data/project/status.txt", "rb+");
+    FILE * t_status = fopen("data/project/t_status.txt", "aw+");
+
+    while(fscanf(status, "%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
+    {
+        if(pid!=p.project_id)
+        {
+            fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, p.status);
+        }
+        else
+        {
+            found =1;
+        }
+        if(pid==p.project_id)
+        {
+            getcod(5,8);
+            printf("ID: %i", p.main_id);
+            getcod(5,9);
+            printf("Project ID: %i", p.project_id);
+            getcod(5,10);
+            printf("Project Name: %s", p.projectname);
+            getcod(5,11);
+            printf("Project Status: %i %", p.status);
+
+            getcod(5,13);
+            printf("Enter the Status Update(1-100):");
+            scanf("%i", &d_status);
+            fprintf(t_status, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, d_status);
+            update = 1;
+        }
+    }
+    if(!update)
+    {
+        printf("Record Not Found \n");
+    }
+    else
+    {
+        printf("Record Updated \n");
+    }
+    fclose(status);
+    fclose(t_status);
+    remove("data//project//status.txt");
+    rename("data//project//t_status.txt", "data//project//status.txt");
+    printf("Press any key to go Back \n");
+    getch();
+    employee_project_menu();
+}
+
+
+

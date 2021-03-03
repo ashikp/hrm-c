@@ -92,7 +92,8 @@ void Employee_Menu()
     printf("2. Project Management \n");
     getcod(20,7);
     printf("3. Exit");
-
+    getcod(20, 11);
+    printf("Select Option: ")
     scanf("%i", &select);
 
 
@@ -783,7 +784,7 @@ void employee_project_menu()
     printf("4. View All Projects");
 
     getcod(20,7);
-    printf("5. Exit");
+    printf("5. << Go Back");
 
     getcod(20,10);
     printf("Select Menu:     ");
@@ -792,20 +793,20 @@ void employee_project_menu()
     switch(select)
     {
     case 1:
-        admin_project_gen_status();
+        employee_project_gen_status();
         break;
     case 2:
-        admin_project_update_status();
+        employee_project_update_status();
         break;
     case 3:
-        admin_view_project_status();
+        employee_view_project_status();
         break;
     case 4:
         employee_view_projects();
         break;
     case 5:
-        printf("Logging Out");
-        exit(0);
+        Employee_Menu();
+        break;
     default:
         printf("Wrong Input \n");
         printf("Press any key to Try Again \n");
