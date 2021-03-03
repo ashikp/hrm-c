@@ -139,6 +139,74 @@ void admin_out()
 
 
 
+void employee_in()
+{
+    system("cls");
+    bannerdesign("Employee Clock IN");
+
+    FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
+    int uid;
+
+    while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF)
+    {
+        uid = gd.uid;
+    }
+    fclose(c_l_e);
+
+    char e_c_in[100];
+
+    sprintf(e_c_in, "data/time/clock_in_out/clock_in_%i.txt", uid);
+    FILE * mainfile = fopen(e_c_in, "aw+");
+
+    fprintf(mainfile,"%s%i\n\n", getlocalctime(), uid);
+    getcod(5,6);
+    printf("User Id: %i", uid);
+    getcod(5,7);
+    printf("Your Clock In Time: %s", getlocalctime());
+    fclose(mainfile);
+    getcod(5,9);
+    printf("Press Any Key to Go back");
+    getch();
+    employee_t_clock_in_or_out();
+}
+
+void employee_out()
+{
+    system("cls");
+    bannerdesign("Employee Clock IN");
+
+    FILE * c_l_e = fopen("data/logs/employee_logs.txt", "rb");
+    int uid;
+
+    while(fscanf(c_l_e,"%s %s %i %i:%i:%i %i\n%i\n\n", gd.week, gd.month, &gd.date, &gd.hour, &gd.mint, &gd.sec, &gd.year, &gd.uid)!=EOF)
+    {
+        uid = gd.uid;
+    }
+    fclose(c_l_e);
+
+    char e_c_out[100];
+
+    sprintf(e_c_out, "data/time/clock_in_out/clock_out_%i.txt", uid);
+    FILE * mainfile = fopen(e_c_out, "aw+");
+
+    fprintf(mainfile,"%s%i\n\n", getlocalctime(), uid);
+    getcod(5,6);
+    printf("User Id: %i", uid);
+    getcod(5,7);
+    printf("Your Clock Out Time: %s", getlocalctime());
+    fclose(mainfile);
+    getcod(5,9);
+    printf("Press Any Key to Go back");
+    getch();
+    employee_t_clock_in_or_out();
+}
+
+
+
+
+
+
+
 void e_report_m()
 {
 

@@ -659,10 +659,10 @@ void employee_t_clock_in_or_out()
     switch(select)
     {
     case 1:
-        admin_in();
+        employee_in();
         break;
     case 2:
-        admin_out();
+        employee_out();
         break;
     case 3:
         employee_time_menu();
@@ -785,7 +785,7 @@ void employee_project_menu()
     getcod(20,7);
     printf("4. View All Projects");
 
-    getcod(20,7);
+    getcod(20,8);
     printf("5. << Go Back");
 
     getcod(20,10);
