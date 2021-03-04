@@ -444,7 +444,7 @@ void admin_fi_salary_administration()
     getcod(20,8);
     printf("4. Salary by Month");
 
-    getcod(20,7);
+    getcod(20,9);
     printf("5. << Go Back");
 
     getcod(20,10);

@@ -366,8 +366,6 @@ void employee_view_projects()
     printf("E ID");
     getcod(46,6);
     printf("Project End");
-    getcod(65,6);
-    printf("Status");
 
     getcod(0,7);
     for(i=0; i<96; i++)
@@ -393,19 +391,6 @@ void employee_view_projects()
             printf("%i", p.employee_assign_id);
             getcod(46,post);
             printf("%s", p.project_end);
-            getcod(65,post);
-            if(p.status==100)
-            {
-                printf("Complete");
-            }
-            else if(p.status < 100 && p.status > 1)
-            {
-                printf("In Process");
-            }
-            else
-            {
-                printf("Pending to Start");
-            }
             post++;
             notfound=1;
         }
