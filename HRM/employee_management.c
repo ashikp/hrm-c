@@ -353,15 +353,17 @@ admin_view_employee()
     getcod(1,6);
     printf("ID");
     getcod(6,6);
-    printf("First Name");
+    printf("Name");
     getcod(26,6);
-    printf("Last Name");
-    getcod(38,6);
     printf("Date of Birth");
-    getcod(58,6);
+    getcod(40,6);
     printf("NID");
-    getcod(75,6);
+    getcod(51,6);
     printf("Salary");
+    getcod(63,6);
+    printf("LI");
+    getcod(70, 6);
+    printf("R");
     getcod(0,7);
     for(i=0; i<95; i++)
     {
@@ -374,13 +376,15 @@ admin_view_employee()
         getcod(6,post);
         printf("%s", ed.first_name);
         getcod(26,post);
-        printf("%s", ed.last_name);
-        getcod(38,post);
         printf("%s", ed.dob);
-        getcod(58,post);
+        getcod(40,post);
         printf("%i", ed.nid_number);
-        getcod(75,post);
+        getcod(51,post);
         printf("%i", ed.salary);
+        getcod(63,post);
+        printf("%s", ed.life_in);
+        getcod(70,post);
+        printf("%s", ed.reward);
         post++;
     }
     printf("\n");

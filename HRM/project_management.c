@@ -374,8 +374,6 @@ void employee_view_projects()
     }
     fclose(employee_log);
 
-    getcod(5,6);
-    printf("ID");
     getcod(9,6);
     printf("P ID");
     getcod(16,6);
@@ -399,8 +397,6 @@ void employee_view_projects()
     while(fscanf(status_check,"%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
     {
         if(uid==p.employee_assign_id){
-            getcod(5,post);
-            printf("%i", p.main_id);
             getcod(9,post);
             printf("%i", p.project_id);
             getcod(16,post);
@@ -444,8 +440,6 @@ void admin_view_project()
     FILE *project_check = fopen("data/project/project.txt","rb");
     int i, post=8;
 
-    getcod(5,6);
-    printf("ID");
     getcod(9,6);
     printf("P ID");
     getcod(16,6);
@@ -464,8 +458,6 @@ void admin_view_project()
     }
     while(fscanf(project_check,"%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
     {
-        getcod(5,post);
-        printf("%i", p.main_id);
         getcod(9,post);
         printf("%i", p.project_id);
         getcod(16,post);
@@ -499,8 +491,6 @@ void admin_view_project_status()
     FILE *status_check = fopen("data/project/status.txt","rb");
     int i, post=8;
 
-    getcod(5,6);
-    printf("ID");
     getcod(9,6);
     printf("P ID");
     getcod(16,6);
@@ -525,8 +515,6 @@ void admin_view_project_status()
 
     while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
     {
-        getcod(5,post);
-        printf("%i", p.main_id);
         getcod(9,post);
         printf("%i", p.project_id);
         getcod(16,post);
@@ -575,8 +563,6 @@ void employee_view_project_status()
     }
     fclose(employee_log);
 
-    getcod(5,6);
-    printf("ID");
     getcod(9,6);
     printf("P ID");
     getcod(16,6);
@@ -602,8 +588,6 @@ void employee_view_project_status()
     while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
     {
         if(uid==p.employee_assign_id){
-            getcod(5,post);
-            printf("%i", p.main_id);
             getcod(9,post);
             printf("%i", p.project_id);
             getcod(16,post);
@@ -662,8 +646,6 @@ void client_view_project_status()
     }
     fclose(client_log);
 
-    getcod(5,6);
-    printf("ID");
     getcod(9,6);
     printf("P ID");
     getcod(16,6);
@@ -689,8 +671,6 @@ void client_view_project_status()
     while(fscanf(status_check,"%i %i %s %i %s %s %i %s %i\n\n", &p.main_id, &p.project_id, p.projectname, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager, &p.status)!=EOF)
     {
         if(uid==p.customer_id){
-            getcod(5,post);
-            printf("%i", p.main_id);
             getcod(9,post);
             printf("%i", p.project_id);
             getcod(16,post);
