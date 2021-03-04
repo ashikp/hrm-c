@@ -416,7 +416,7 @@ void admin_fi_payroll()
         admin_release_pay_order();
         break;
     case 5:
-        Administrator_Menu();
+        admin_financial_menu();
         break;
     default:
         printf("Wrong Input \n");

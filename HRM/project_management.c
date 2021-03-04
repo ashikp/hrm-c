@@ -32,7 +32,7 @@ struct project
     int employee_assign_id;
     char project_manager[1000];
     int status;
-} p, cp;
+} p, cp, cs;
 
 struct user_entry
 {
@@ -215,14 +215,19 @@ void admin_project_gen_status()
 
     FILE * project = fopen("data/project/project.txt", "rb");
     FILE * status_project = fopen("data/project/status.txt", "aw+");
-    int status = 0, done = 0, pid;
+    int status = 0, done = 0, pid, exist=0;
 
 
     getcod(5,6);
     printf("Enter Project Id: ");
     scanf("%i", &pid);
 
-
+     while(fscanf(status_project, "%i %i %s %i %s %s %i %s %i\n\n", &cs.main_id, &cs.project_id, cs.projectname, &cs.customer_id, cs.project_start, cs.project_end, &cs.employee_assign_id, cs.project_manager, &cs.status)!=EOF){
+            if(pid==cs.project_id){
+                exist = 1;
+            }
+        }
+    if(!exist){
     while(fscanf(project, "%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
     {
         if(pid==p.project_id)
@@ -231,6 +236,14 @@ void admin_project_gen_status()
             done = 1;
         }
     }
+    }else{
+        printf("Project Already Exist \n");
+    }
+
+    fclose(status_project);
+    fclose(project);
+
+
     if(!done)
     {
         printf("Failed to Generate Status \n");
@@ -239,8 +252,6 @@ void admin_project_gen_status()
     {
         printf("Project Status Generate Done \n");
     }
-    fclose(status_project);
-    fclose(project);
 
     printf("Press any key to go Back \n");
     getch();
@@ -256,13 +267,19 @@ void employee_project_gen_status()
 
     FILE * project = fopen("data/project/project.txt", "rb");
     FILE * status_project = fopen("data/project/status.txt", "aw+");
-    int status = 0, done = 0, pid;
+    int status = 0, done = 0, pid, exist=0;
 
 
     getcod(5,6);
     printf("Enter Project Id: ");
     scanf("%i", &pid);
 
+    while(fscanf(status_project, "%i %i %s %i %s %s %i %s %i\n\n", &cs.main_id, &cs.project_id, cs.projectname, &cs.customer_id, cs.project_start, cs.project_end, &cs.employee_assign_id, cs.project_manager, &cs.status)!=EOF){
+            if(pid==cs.project_id){
+                exist = 1;
+            }
+        }
+    if(!exist){
 
     while(fscanf(project, "%i %i %s %s %s %i %s %s %i %s\n\n", &p.main_id, &p.project_id, p.projectname, p.firstname_customer, p.lastname_customer, &p.customer_id, p.project_start, p.project_end, &p.employee_assign_id, p.project_manager)!=EOF)
     {
@@ -271,6 +288,9 @@ void employee_project_gen_status()
             fprintf(status_project, "%i %i %s %i %s %s %i %s %i\n\n", p.main_id, p.project_id, p.projectname, p.customer_id, p.project_start, p.project_end, p.employee_assign_id, p.project_manager, status);
             done = 1;
         }
+    }
+    }else{
+        printf("Project Already Exist \n");
     }
     if(!done)
     {
