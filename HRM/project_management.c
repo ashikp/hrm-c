@@ -211,7 +211,7 @@ void admin_add_project()
 void admin_project_gen_status()
 {
     system("cls");
-    bannerdesign("View Projects");
+    bannerdesign("Generate Project Status");
 
     FILE * project = fopen("data/project/project.txt", "rb");
     FILE * status_project = fopen("data/project/status.txt", "aw+");
@@ -263,7 +263,7 @@ void admin_project_gen_status()
 void employee_project_gen_status()
 {
     system("cls");
-    bannerdesign("View Projects");
+    bannerdesign("Generate Projects");
 
     FILE * project = fopen("data/project/project.txt", "rb");
     FILE * status_project = fopen("data/project/status.txt", "aw+");
@@ -363,7 +363,7 @@ void admin_delete_project()
 void employee_view_projects()
 {
     system("cls");
-    bannerdesign("View Projects Status");
+    bannerdesign("View Projects");
 
     FILE * employee_log = fopen("data/logs/employee_logs.txt", "rb");
     FILE * status_check = fopen("data/project/project.txt","rb");
