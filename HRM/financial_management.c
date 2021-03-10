@@ -575,7 +575,7 @@ void admin_release_salary_single()
     rename(t_getfile, getfile);
     printf("Press any key to go Back \n");
     getch();
-    admin_fi_payroll();
+    admin_fi_salary_administration();
 
 }
 
@@ -584,7 +584,7 @@ void admin_release_salary_month()
     system("cls");
     bannerdesign("Release Salary Month");
     char month[100], getfile[100], t_getfile[100], paid[100] = "Paid";
-    int year;
+    int year, found=0;
 
     getcod(5,6);
     printf("Enter Year: ");
@@ -604,14 +604,21 @@ void admin_release_salary_month()
     while(fscanf(salary, "%i %s %s %i %s %i %s\n\n", &rs.id, rs.first_name, rs.last_name, &rs.salary, rs.month, &rs.year, rs.status)!=EOF)
     {
         fprintf(t_salary,"%i %s %s %i %s %i %s\n\n", rs.id, rs.first_name, rs.last_name, rs.salary, rs.month, rs.year, paid);
+        found =1;
     }
+    if(!found){
+        printf("Not Updated\n");
+    }else{
+        printf("Updated\n");
+    }
+
     fclose(salary);
     fclose(t_salary);
     remove(getfile);
     rename(t_getfile, getfile);
     printf("Press any key to go Back \n");
     getch();
-    admin_fi_payroll();
+    admin_fi_salary_administration();
 
 }
 

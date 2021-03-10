@@ -1,4 +1,2 @@
-104 database data data data ada ada main mail 1234567890 it 01-01-2021 it 1000 01-01-1999 yes yes
-
-105 me me me me me me me me 1234567890 me 01-01-2021 it 10101010 01-01-1999 no no
+102 employee employee e e a a a a 123456789 it 01-01-2021 it 1000 01-01-1999 yes no
 

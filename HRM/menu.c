@@ -29,13 +29,10 @@ void Administrator_Menu()
     printf("5. Project Menu"); //project_management.c
 
     getcod(20,10);
-    printf("6. Reports");
-
-    getcod(20,11);
-    printf("7. Software Manual"); // help.c
+    printf("6. Software Manual"); // help.c
 
     getcod(20,12);
-    printf("8. Exit");
+    printf("7. Exit");
 
 
 
@@ -60,9 +57,6 @@ void Administrator_Menu()
         break;
     case 5:
         admin_project_menu();
-        break;
-    case 6:
-        admin_reports();
         break;
     case 7:
         admin_help();
@@ -153,7 +147,7 @@ void Client_Menu()
 void admin_help()
 {
     system("cls");
-    bannerdesign("Help");
+    bannerdesign("Software Manual");
 
     int select;
     getcod(20,5);
@@ -175,10 +169,7 @@ void admin_help()
     printf("6. Project Menu");
 
     getcod(20,11);
-    printf("7. Reports");
-
-    getcod(20,12);
-    printf("8. Exit");
+    printf("7. Exit");
 
     getcod(20,16);
     printf("Select Menu:     ");
@@ -206,9 +197,6 @@ void admin_help()
         help_project_menu();
         break;
     case 7:
-        help_reports_menu();
-        break;
-    case 8:
         Administrator_Menu();
         break;
     default:
@@ -229,7 +217,7 @@ void admin_help()
 void admin_employee_menu()
 {
     system("cls");
-    bannerdesign("Information Database");
+    bannerdesign("Employee Menu");
     int select;
 
     getcod(20,5);

@@ -5,8 +5,8 @@
 
 int main()
 {
-    SMALL_RECT windowSize = {0 , 0 , 30 , 95}; //change the values
-    SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &windowSize);
+    //SMALL_RECT windowSize = {0 , 0 , 30 , 95}; //change the values
+    //SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), TRUE, &windowSize);
     welcome();
     login();
 

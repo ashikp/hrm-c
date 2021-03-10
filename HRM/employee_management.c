@@ -280,7 +280,7 @@ void admin_add_employee()
 
     do{
         getcod(10,21);
-        printf("Rewards (Yes or No): ");
+        printf("Health Insurance (Yes or No): ");
         fflush(stdin);
         gets(ed.reward);
         break;
@@ -363,7 +363,7 @@ admin_view_employee()
     getcod(63,6);
     printf("LI");
     getcod(70, 6);
-    printf("R");
+    printf("HI");
     getcod(0,7);
     for(i=0; i<95; i++)
     {
@@ -695,7 +695,7 @@ void admin_edit_employee()
 
             do{
                 getcod(20,39);
-                printf("Rewards (Yes or No): ");
+                printf("Health Insurance (Yes or No): ");
                 fflush(stdin);
                 gets(ed.reward);
             }

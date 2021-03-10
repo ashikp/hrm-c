@@ -1,6 +1,0 @@
-1 01-02-2021 Ashikur 1000 salary 106 Approved
-
-2 01-02-2021 Ashikur 1000 salary 107 Approved
-
-3 02-03-2021 Ashik 1000 employee 101 Approved
-
